@@ -3,7 +3,8 @@ module Sorting
     
     def merge_sort(array, &comparator)
       return [] if array.size == 0
-      do_merge_sort(array, 0, array.size - 1, &comparator)
+      sorted = do_merge_sort(array, 0, array.size - 1, &comparator)
+      array.replace(sorted)
     end
 
     def do_merge_sort(array, start_index, end_index, &comparator)
@@ -46,30 +47,5 @@ module Sorting
 
       merged
     end
-    
-    def run
-      sorted = merge_sort([3, 1, 2, 4]) do |a, b|
-        to_return = a <=> b
-        to_return
-      end
-
-      puts sorted.inspect
-
-      sorted = merge_sort([4, 3, 2, 1]) do |a, b|
-        to_return = a <=> b
-        to_return
-      end
-
-      puts sorted.inspect
-
-      sorted = merge_sort([]) do |a, b|
-        to_return = a <=> b
-        to_return
-      end
-
-      puts sorted.inspect
-    end
   end
 end
-
-Sorting.run

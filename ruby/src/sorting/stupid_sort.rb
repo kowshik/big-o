@@ -7,25 +7,13 @@ module Sorting
       array[j] = temp
     end
 
-    def stupid_sort(array)
+    def stupid_sort(array, &comparator)
       (0..array.size - 1).each do |i|
         (i + 1..array.size - 1).each do |j|
-          swap(array, i, j) if array[i] > array[j]
+          swap(array, i, j) if (yield(array[i], array[j]) > 0)
         end
       end
     end
-    
-    def run
-      array = [0,3,1,4,5]
-      stupid_sort(array)
-      puts array.inspect
-
-      array = [5, 1, 4, 3, 2]
-      stupid_sort(array)
-      puts array.inspect
-    end
   end
 end
-
-Sorting.run
 
