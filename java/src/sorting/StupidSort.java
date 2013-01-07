@@ -3,21 +3,6 @@ package sorting;
 import java.util.Comparator;
 
 public class StupidSort {
-    public static void main(String[] args) {
-	Comparator<Integer> ascending = new Comparator<Integer>() {
-	    @Override
-	    public int compare(Integer foo, Integer bar) {
-		return foo - bar;
-	    }
-	};
-	
-	int[] array = {5, 4, 3, 2, 1};
-	stupidSort(array, ascending);
-	for (int x : array) {
-	    System.out.println(x);
-	}
-    }
-    
     public static void swap(int[] array, int foo, int bar) {
 	int temp = array[foo];
 	array[foo] = array[bar];
@@ -32,5 +17,5 @@ public class StupidSort {
 		}
 	    } 
 	}
-    }
+    }    
 }
