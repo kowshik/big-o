@@ -8,7 +8,12 @@ public class MergeSort {
 	    return new int[]{};
 	}
 
-	return mergeSort(array, 0, array.length - 1, comparator);
+	int[] sorted = mergeSort(array, 0, array.length - 1, comparator);
+	for (int index = 0; index < array.length; index++) {
+	    array[index] = sorted[index];
+	}
+
+	return sorted;
     }
 
     private static int[] mergeSort(int[] array, int start, int end, Comparator<Integer> comparator) {
