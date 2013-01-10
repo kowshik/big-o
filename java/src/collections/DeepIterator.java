@@ -7,7 +7,21 @@ import java.util.NoSuchElementException;
 import java.util.Stack;
 import java.util.Vector;
 
+/**
+ * This class provides a flattening iterator over a Collection<?>.
+ * i.e. In its constructor, the class takes in a Collection<?> object
+ * which may nest either a Collection<?> object or an object of type T.
+ * Also, it is expected that the nested Collection<?> objects will not
+ * reference their container Collection<?> objects as this will lead
+ * to a loop. But they can nest other Collection<?> objects.
+
+ * Example: This deep iterator can be used to iterate over a vector that
+ *          either contains a vector of integers, or just plain integers,
+ *          or both.
+ */
 public class DeepIterator<T> implements Iterator<T> {
+    // A reference to the item which will be returned during
+    // the next call to next().
     private T nextItem;
     private Stack<Iterator<?>> stack = new Stack<Iterator<?>>();
 
