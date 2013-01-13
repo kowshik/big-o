@@ -4,6 +4,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	sorting.MergeSortTest.class,
+	sorting.HeapSortTest.class,
 	sorting.StupidSortTest.class,
 	collections.DeepIteratorTest.class
 	    })
