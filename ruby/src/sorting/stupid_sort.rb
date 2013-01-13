@@ -13,6 +13,8 @@ module Sorting
           swap(array, i, j) if (yield(array[i], array[j]) > 0)
         end
       end
+
+      array
     end
   end
 end
