@@ -7,7 +7,7 @@ import common.ArrayUtils;
 public class HeapSort {
     public static <T> T[] heapSort(T[] array, Comparator<T> comparator) {
 	array = heapify(array, comparator);
-	
+
 	for (int length = array.length; length > 1; length--) {
 	    common.ArrayUtils.swap(array, 0, length - 1);
 	    array = heapify(array, length - 1, 0, comparator);
@@ -20,14 +20,14 @@ public class HeapSort {
 	for(int rootIndex = parentIndex(array.length - 1); rootIndex >= 0; rootIndex--) {
 	    array = heapify(array, rootIndex, comparator);
 	}
-	
+
 	return array;
     }
 
     private static <T> T[] heapify(T[] array, int rootIndex, Comparator<T> comparator) {
 	return heapify(array, array.length, rootIndex, comparator);
     }
-    
+
     private static <T> T[] heapify(T[] array, int length, int rootIndex, Comparator<T> comparator) {
 	int indexToBeSwapped = rootIndex;
 
@@ -47,7 +47,7 @@ public class HeapSort {
 	    common.ArrayUtils.swap(array, rootIndex, indexToBeSwapped);
 	    array = heapify(array, length, indexToBeSwapped, comparator);
 	}
-	
+
 	return array;
     }
 
@@ -62,7 +62,7 @@ public class HeapSort {
     private static int parentIndex(int index) {
 	return new Double(Math.floor((index - 1) / 2)).intValue();
     }
-    
+
     public static void main(String[] args) {
 	Integer[] array = {3, 1, 4, 8, 2, 7, 5, 6};
 	Comparator<Integer> maxHeapComparator = new Comparator<Integer>() {
@@ -71,7 +71,7 @@ public class HeapSort {
 		return a - b;
 	    }
 	};
-	
+
 	array = heapSort(array, maxHeapComparator);
     }
 }

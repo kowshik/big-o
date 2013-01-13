@@ -24,13 +24,13 @@ public class MergeSort {
 	int[] left = mergeSort(array, start, (start + end) / 2, comparator);
 	int[] right = mergeSort(array, (start + end) / 2 + 1, end, comparator);
 	int[] sorted = merge(left, right, comparator);
-	
+
 	return sorted;
     }
 
     public static int[] merge(int[] foo, int[] bar, Comparator<Integer> comparator) {
 	int[] merged = new int[foo.length + bar.length];
-	
+
 	int fooIndex = 0, barIndex = 0, mergedIndex = 0;
 	while (fooIndex < foo.length && barIndex < bar.length) {
 	    if(comparator.compare(foo[fooIndex], bar[barIndex]) < 0) {
@@ -40,7 +40,7 @@ public class MergeSort {
 		merged[mergedIndex] = bar[barIndex];
 		barIndex++;
 	    }
-	     
+
 	    mergedIndex++;
 	}
 
@@ -51,7 +51,7 @@ public class MergeSort {
 	while (barIndex < bar.length) {
 	    merged[mergedIndex++] = bar[barIndex++];
 	}
-	
+
 	return merged;
-    }    
+    }
 }

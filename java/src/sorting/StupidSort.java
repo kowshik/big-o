@@ -1,5 +1,5 @@
 package sorting;
-   
+
 import java.util.Comparator;
 
 public class StupidSort {
@@ -15,9 +15,9 @@ public class StupidSort {
 		if (comparator.compare(array[i], array[j]) > 0) {
 		    swap(array, i, j);
 		}
-	    } 
+	    }
 	}
 
 	return array;
-    }    
+    }
 }
