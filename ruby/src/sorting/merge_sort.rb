@@ -1,3 +1,5 @@
+require_relative '../common/array_utils'
+
 module Sorting
   class << self
 

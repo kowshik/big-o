@@ -1,3 +1,5 @@
+require_relative '../common/array_utils'
+
 module Sorting
   class << self
     
@@ -5,7 +7,7 @@ module Sorting
       array = heapify_all(array, &comparator)
       
       array.length.downto(2) do |length|
-        swap(array, 0, length - 1)
+        ArrayUtils.swap(array, 0, length - 1)
         array = heapify(array, 0, length - 1, &comparator)
       end
 
@@ -42,7 +44,7 @@ module Sorting
       end
       
       if root_index != index_to_be_swapped
-        swap(array, root_index, index_to_be_swapped)
+        ArrayUtils.swap(array, root_index, index_to_be_swapped)
         array = heapify(array, index_to_be_swapped, length, &comparator)
       end
 
@@ -59,12 +61,6 @@ module Sorting
 
     def right_child_index(root_index)
       2 * root_index + 2
-    end
-    
-    def swap(array, i, j)
-      temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
     end
   end
 end
