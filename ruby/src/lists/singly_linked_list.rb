@@ -9,51 +9,49 @@ class SinglyLinkedList
       @value = opts[:value]
       @next = opts[:next]
     end
+
+    def to_s
+      @value.to_s
+    end
   end
 
   public
 
   attr_reader :size
 
-  def initialize
-    @size = 0
-  end
-
   def add(value)
     new_node = Node.new(:value => value)
+    @size ||= 0
+    @size += 1
 
     unless @head
-      @head = new_node
-      @size = 1
+      @head = @tail = new_node
       return
     end
 
-    iterator = @head
-    while iterator
-      last = iterator
-      iterator = iterator.next
-    end
+    @tail.next = new_node
+    @tail = new_node
 
-    last.next = new_node
-    @size += 1
     return
   end
 
-  def reverse
-    current = @head
-    return unless current
+  def size
+    @size || 0
+  end
 
-    next_node = current.next
-    current.next = nil
+  def reverse
+    return if @head == @tail
+
+    @tail = @head
+    next_node = @head.next
+    @head.next = nil
+
     while next_node
       tmp = next_node.next
-      next_node.next = current
-      current = next_node
+      next_node.next = @head
+      @head = next_node
       next_node = tmp
     end
-
-    @head = current
-    return
   end
 
   def each(&block)

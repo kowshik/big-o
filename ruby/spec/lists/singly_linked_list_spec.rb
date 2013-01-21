@@ -19,9 +19,11 @@ describe SinglyLinkedList do
         item.should == expected[index]
         index += 1
       end
+
+      index.should == list.size
     end
 
-    it "should work for  a list with more than 1 element" do
+    it "should work for a list with more than 1 element" do
       list = SinglyLinkedList.new
 
       list.add(0)
@@ -39,6 +41,8 @@ describe SinglyLinkedList do
         value.should == expected[index]
         index += 1
       end
+
+      index.should == list.size
     end
   end
 end
