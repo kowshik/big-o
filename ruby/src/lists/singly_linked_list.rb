@@ -19,7 +19,7 @@ class SinglyLinkedList
     @size = 0
   end
 
-  def append(value)
+  def add(value)
     new_node = Node.new(:value => value)
 
     unless @head

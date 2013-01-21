@@ -9,7 +9,7 @@ describe SinglyLinkedList do
     it "should work for a list with 1 element" do
       list = SinglyLinkedList.new
 
-      list.append(0)
+      list.add(0)
       list.reverse
       list.size.should == 1
 
@@ -24,10 +24,10 @@ describe SinglyLinkedList do
     it "should work for  a list with more than 1 element" do
       list = SinglyLinkedList.new
 
-      list.append(0)
-      list.append(1)
-      list.append(2)
-      list.append(3)
+      list.add(0)
+      list.add(1)
+      list.add(2)
+      list.add(3)
 
       list.reverse
 
