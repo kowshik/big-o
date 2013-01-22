@@ -59,7 +59,6 @@ public class SimpleHeapImpl<T> implements Heap<T> {
 	public void add(T element) {
 		heap.add(element);
 		heapify();
-
 	}
 
 	private void heapify() {
