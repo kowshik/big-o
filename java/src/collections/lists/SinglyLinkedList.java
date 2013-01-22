@@ -7,34 +7,35 @@ import java.util.ListIterator;
 
 public class SinglyLinkedList<T> implements CustomizedList<T> {
 
-	private class Node<T> {
-		private T value;
-		private Node<T> next;
+	private class Node<E> {
+		private E value;
+		private Node<E> next;
 
-		public Node() {
-			this(null);
-		}
-
-		public Node(T value) {
+		public Node(E value) {
 			this(null, null);
 		}
 
-		public Node(T value, Node<T> next) {
+		public Node(E value, Node<E> next) {
 			this.value = value;
 			this.next = next;
 		}
 
-		public Node<T> getNext() {
+		public Node<E> getNext() {
 			return next;
 		}
 
-		public boolean hasNext() {
-			return next != null;
-		}
-
-		public void setNext(Node<T> next) {
+		public void setNext(Node<E> next) {
 			this.next = next;
 		}
+
+		public E getValue() {
+			return value;
+		}
+
+		public void setValue(E value) {
+			this.value = value;
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -186,7 +187,7 @@ public class SinglyLinkedList<T> implements CustomizedList<T> {
 	}
 
 	@Override
-	public <T> T[] toArray(T[] arg0) {
+	public <X> X[] toArray(X[] arg0) {
 		throw new UnsupportedOperationException();
 	}
 }
