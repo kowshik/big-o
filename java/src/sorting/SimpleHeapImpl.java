@@ -106,4 +106,9 @@ public class SimpleHeapImpl<T> implements Heap<T> {
 		return new Double(Math.floor((index - 1) / 2)).intValue();
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return size() == 0;
+	}
+
 }

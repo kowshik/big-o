@@ -10,4 +10,6 @@ public interface Heap<T> {
 	T pop() throws EmptyHeapException;
 
 	void add(T element);
+
+	boolean isEmpty();
 }
