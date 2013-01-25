@@ -1,6 +1,7 @@
 package sorting;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
@@ -26,6 +27,10 @@ public class SimpleHeapImpl<T> implements Heap<T> {
 		this.comparator = comparator;
 		this.heap = list;
 		heapify();
+	}
+
+	public SimpleHeapImpl(T[] array, Comparator<T> comparator) {
+		this(new ArrayList<T>(Arrays.asList(array)), comparator);
 	}
 
 	@Override
