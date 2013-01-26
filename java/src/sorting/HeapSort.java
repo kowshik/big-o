@@ -12,7 +12,7 @@ public class HeapSort {
 			try {
 				array[index] = heap.pop();
 			} catch (EmptyHeapException e) {
-				// This should never occur;
+				// This should never occur
 				throw new RuntimeException(e);
 			}
 		}
