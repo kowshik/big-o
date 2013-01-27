@@ -75,6 +75,26 @@ describe BinaryTrees do
       root_node = BinaryTrees::TreeNode.new(:value => 4,
                                              :left_node => left_node_1,
                                              :right_node => right_node_1)
+
+      returned = BinaryTrees.tree_to_circular_list(root_node)
+
+      returned.should == right_node_1_right
+
+      returned.right_node.should == left_node_1_left
+      left_node_1_left.right_node.should == left_node_1
+      left_node_1.right_node.should == left_node_1_right
+      left_node_1_right.right_node.should == root_node
+      root_node.right_node.should == right_node_1_left
+      right_node_1_left.right_node.should == right_node_1
+      right_node_1.right_node.should == right_node_1_right
+
+      returned.left_node.should == right_node_1
+      right_node_1.left_node.should == right_node_1_left
+      right_node_1_left.left_node.should == root_node
+      root_node.left_node.should == left_node_1_right
+      left_node_1_right.left_node.should == left_node_1
+      left_node_1.left_node.should == left_node_1_left
+      left_node_1_left.left_node.should == returned
     end
   end
 end
