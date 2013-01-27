@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
 		collections.DeepIteratorTest.class, collections.PeekIteratorTest.class,
 		collections.lists.SinglyLinkedListTest.class,
 		arrays.RearrangeInputToTargetTest.class, common.NumberUtilsTest.class,
-		common.StringUtilsTest.class })
+		common.StringUtilsTest.class, general.RainWaterTest.class })
 public class AllTests {
 	public static void main(String[] args) {
 		org.junit.runner.JUnitCore.main("AllTests");
