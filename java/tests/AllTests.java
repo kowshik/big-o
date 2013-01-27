@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({ sorting.MergeSortTest.class, sorting.HeapSortTest.class,
 		sorting.QuickSortTest.class, sorting.StupidSortTest.class,
 		sorting.InsertionSortTest.class, sorting.SimpleHeapImplTest.class,
-		collections.DeepIteratorTest.class,
+		collections.DeepIteratorTest.class, collections.PeekIteratorTest.class,
 		collections.lists.SinglyLinkedListTest.class,
 		arrays.RearrangeInputToTargetTest.class, common.NumberUtilsTest.class,
 		common.StringUtilsTest.class })
