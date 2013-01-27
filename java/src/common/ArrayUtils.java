@@ -1,5 +1,7 @@
 package common;
 
+import java.util.Comparator;
+
 public class ArrayUtils {
 	public static Integer[] autoBox(int[] array) {
 		Integer[] converted = new Integer[array.length];
@@ -35,5 +37,25 @@ public class ArrayUtils {
 		T temp = array[fooIndex];
 		array[fooIndex] = array[barIndex];
 		array[barIndex] = temp;
+	}
+
+	public static int findIndex(int[] array, int value) {
+		for (int index = 0; index < array.length; index++) {
+			if (array[index] == value) {
+				return index;
+			}
+		}
+
+		return -1;
+	}
+
+	public static <T> int findIndex(T[] array, T value, Comparator<T> comparator) {
+		for (int index = 0; index < array.length; index++) {
+			if (comparator.compare(array[index], value) == 0) {
+				return index;
+			}
+		}
+
+		return -1;
 	}
 }
