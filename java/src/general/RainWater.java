@@ -42,13 +42,13 @@ public class RainWater {
 	 *            representing the height at a particular point.
 	 * @return amount of water accumulated on the given terrain.
 	 */
-	public static int findAccumulatedWater(int[] terrain) {
+	public static long findAccumulatedWater(int[] terrain) {
 		if (terrain == null) {
 			return 0;
 		}
 		int maxIndex = 0;
-		int totalWater = 0;
-		int tempWater = 0;
+		long totalWater = 0;
+		long tempWater = 0;
 
 		for (int index = maxIndex + 1; index < terrain.length; index++) {
 			if (terrain[index] >= terrain[maxIndex]) {
@@ -71,6 +71,7 @@ public class RainWater {
 				tempWater += terrain[reverseMaxIndex] - terrain[index];
 			}
 		}
+
 		return totalWater;
 	}
 }
