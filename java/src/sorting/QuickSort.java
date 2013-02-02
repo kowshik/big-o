@@ -26,40 +26,18 @@ public class QuickSort {
 
 	public static <T> int partition(T[] array, int startIndex, int endIndex,
 			T pivot, Comparator<T> comparator) {
-		int nextPivotIndex = -1;
-		int nextGreaterIndex = -1;
 		int nextIndex = startIndex;
+		int nextPivotIndex = nextIndex - 1;
 
 		while (nextIndex <= endIndex) {
-			int comparison = comparator.compare(array[nextIndex], pivot);
-			if (comparison < 0) {
-				if (nextPivotIndex != -1) {
-					common.ArrayUtils.swap(array, nextPivotIndex, nextIndex);
-					nextPivotIndex++;
-				}
-
-				if (nextGreaterIndex != -1) {
-					common.ArrayUtils.swap(array, nextIndex, nextGreaterIndex);
-					nextGreaterIndex++;
-				}
-			} else if (comparison == 0) {
-				if (nextGreaterIndex != -1) {
-					common.ArrayUtils.swap(array, nextIndex, nextGreaterIndex);
-					if (nextPivotIndex == -1) {
-						nextPivotIndex = nextGreaterIndex;
-					}
-					nextGreaterIndex++;
-				} else if (nextPivotIndex == -1) {
-					nextPivotIndex = nextIndex;
-				}
-			} else if (nextGreaterIndex == -1) {
-				nextGreaterIndex = nextIndex;
-			}
-
-			nextIndex++;
+                    if (comparator.compare(array[nextIndex], pivot) <= 0) {
+                        nextPivotIndex++;
+                        common.ArrayUtils.swap(array, nextPivotIndex, nextIndex);
+                    }
+                    nextIndex++;
 		}
 
 		return nextPivotIndex;
 	}
-
 }
+
