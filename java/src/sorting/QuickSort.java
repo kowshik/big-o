@@ -14,30 +14,33 @@ public class QuickSort {
 			return array;
 		}
 
-		int length = endIndex - startIndex + 1;
-		int randomPivotIndex = new Random().nextInt(length) + startIndex;
-		T randomPivot = array[randomPivotIndex];
-		int actualPivotIndex = partition(array, startIndex, endIndex,
-				randomPivot, comparator);
-		array = quickSort(array, startIndex, actualPivotIndex - 1, comparator);
-		array = quickSort(array, actualPivotIndex + 1, endIndex, comparator);
+		int pivotIndex = partition(array, startIndex, endIndex, comparator, -1);
+		array = quickSort(array, startIndex, pivotIndex - 1, comparator);
+		array = quickSort(array, pivotIndex + 1, endIndex, comparator);
 		return array;
 	}
 
-	public static <T> int partition(T[] array, int startIndex, int endIndex,
-			T pivot, Comparator<T> comparator) {
-		int nextIndex = startIndex;
-		int nextPivotIndex = nextIndex - 1;
+	private static int getRandomPivotIndex(int startIndex, int endIndex) {
+		int length = endIndex - startIndex + 1;
+		return new Random().nextInt(length) + startIndex;
+	}
 
-		while (nextIndex <= endIndex) {
-                    if (comparator.compare(array[nextIndex], pivot) <= 0) {
-                        nextPivotIndex++;
-                        common.ArrayUtils.swap(array, nextPivotIndex, nextIndex);
-                    }
-                    nextIndex++;
+	public static <T> int partition(T[] array, int startIndex, int endIndex,
+			Comparator<T> comparator, int pivotIndex) {
+		if (pivotIndex == -1) {
+			pivotIndex = getRandomPivotIndex(startIndex, endIndex);
 		}
 
-		return nextPivotIndex;
+		common.ArrayUtils.swap(array, pivotIndex, endIndex);
+		int swapIndex = startIndex - 1;
+		for (int index = startIndex; index <= endIndex - 1; index++) {
+			if (comparator.compare(array[index], array[endIndex]) <= 0) {
+				swapIndex++;
+				common.ArrayUtils.swap(array, swapIndex, index);
+			}
+		}
+
+		common.ArrayUtils.swap(array, swapIndex + 1, endIndex);
+		return swapIndex + 1;
 	}
 }
-
