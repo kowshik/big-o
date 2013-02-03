@@ -9,61 +9,49 @@ module Sorting
 
       return array if start_index >= end_index
 
-      length = end_index - start_index + 1
-      random_pivot_index = Random.rand(length) + start_index
-      pivot = array[random_pivot_index]
-
-      actual_pivot_index = partition(array,
-                                     :start_index => start_index,
-                                     :end_index => end_index,
-                                     :pivot => pivot,
-                                     &comparator)
+      pivot_index = partition(array,
+                              :start_index => start_index,
+                              :end_index => end_index,
+                              &comparator)
       array = quick_sort(array,
                          :start_index => start_index,
-                         :end_index => actual_pivot_index - 1,
+                         :end_index => pivot_index - 1,
                          &comparator)
       array = quick_sort(array,
-                         :start_index => actual_pivot_index + 1,
+                         :start_index => pivot_index + 1,
                          :end_index => end_index,
                          &comparator)
       array
     end
 
+    def random_pivot(start_index, end_index)
+      length = end_index - start_index + 1
+      Random.rand(length) + start_index
+    end
+
     def partition(array, opts = {}, &comparator)
       start_index = opts[:start_index] || 0
       end_index = opts[:end_index] || array.length - 1
-      pivot = opts[:pivot] || array[start_index]
+      pivot_index = opts[:pivot_index] || random_pivot(start_index, end_index)
 
-      next_pivot_index = nil
-      next_greater_index = nil
-      (start_index..end_index).each do |next_index|
-        comparison = yield(array[next_index], pivot)
-        if comparison < 0
-          if next_pivot_index
-            ArrayUtils.swap(array, next_pivot_index, next_index)
-            next_pivot_index += 1
-          end
+      # Put the pivot in the end.
+      ArrayUtils.swap(array, pivot_index, end_index)
 
-          if next_greater_index
-            ArrayUtils.swap(array, next_greater_index, next_index)
-            next_greater_index += 1
-          end
-        elsif comparison == 0
-          if next_greater_index
-            ArrayUtils.swap(array, next_greater_index, next_index)
-            next_pivot_index = next_greater_index unless next_pivot_index
-            next_greater_index += 1
-          elsif !next_pivot_index
-            next_pivot_index = next_index
-          end
-        elsif !next_greater_index
-          next_greater_index = next_index
+      swap_index = start_index - 1
+
+      # When the loop below terminates, we will have
+      # all elements <= pivot in the range (0..swapindex).
+      (start_index..end_index - 1).each do |index|
+        comparison = yield(array[index], array[end_index])
+        if comparison <= 0
+          swap_index += 1
+          ArrayUtils.swap(array, swap_index, index)
         end
-
-        next_index += 1
       end
 
-      next_pivot_index
+      # Put the pivot at the position where it deserves to be in.
+      ArrayUtils.swap(array, swap_index + 1, end_index)
+      swap_index + 1
     end
   end
 end

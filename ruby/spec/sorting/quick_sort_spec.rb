@@ -23,34 +23,25 @@ describe Sorting do
 
   describe ".partition" do
     it "should work when there are only pivots in the array" do
-      pivot = 3
-      array = [pivot, pivot, pivot, pivot, pivot]
-      pivot_index = Sorting.partition(array, :pivot => pivot) { |a, b| a <=> b }
-      pivot_index.should == 0
-      array.should == [pivot, pivot, pivot, pivot, pivot]
-    end
-
-    it "should work when there are no pivots in the array" do
-      pivot = 3
-      array = [5, 1, 2, 4, 6]
-      pivot_index = Sorting.partition(array, :pivot => pivot) { |a, b| a <=> b }
-      pivot_index.should be_nil
-      array.should == [1, 2, 5, 4, 6]
+      array = [3, 3, 3, 3, 3]
+      returned = Sorting.partition(array, :pivot_index => 3) { |a, b| a <=> b }
+      returned.should == 4
+      array.should == [3, 3, 3, 3, 3]
     end
 
     it "should work when only smaller elements and pivots are in the array" do
-      pivot = 3
+      pivot_index = 3
       array = [3, 0, 2, 3, -1, -2, 0, 3]
-      pivot_index = Sorting.partition(array, :pivot => pivot) { |a, b| a <=> b }
-      pivot_index.should == 5
-      array.should == [0, 2, -1, -2, 0, 3, 3, 3]
+      returned = Sorting.partition(array, :pivot_index => pivot_index) { |a, b| a <=> b }
+      returned.should == 7
+      array.should == [3, 0, 2, 3, -1, -2, 0, 3]
     end
 
     it "should work when only larger elements and pivots are in the array" do
-      pivot = 3
+      pivot_index = 3
       array = [3, 10, 4, 3, 5, 7, 7, 3]
-      pivot_index = Sorting.partition(array, :pivot => pivot) { |a, b| a <=> b }
-      pivot_index.should == 0
+      returned = Sorting.partition(array, :pivot_index => pivot_index) { |a, b| a <=> b }
+      returned.should == 2
       array.should == [3, 3, 3, 10, 5, 7, 7, 4]
     end
   end
