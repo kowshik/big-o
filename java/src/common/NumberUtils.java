@@ -8,29 +8,25 @@ public class NumberUtils {
 		}
 
 		boolean isNegative = false;
-		int endIndex = 0;
+		int startIndex = 0;
 		if (numberString.charAt(0) == '-') {
 			isNegative = true;
-			endIndex = 1;
+			startIndex = 1;
 		} else if (numberString.charAt(0) == '+') {
-			endIndex = 1;
-		} else if (!Character.isDigit(numberString.charAt(0))) {
-			throw new NumberFormatException("The string is malformed.");
+			startIndex = 1;
 		}
 
-		if (endIndex == 1 && numberString.length() == 1) {
+		if (startIndex == 1 && numberString.length() == 1) {
 			throw new NumberFormatException("The string is malformed.");
 		}
 
 		int num = 0;
-		int counter = 1;
-		for (int index = numberString.length() - 1; index >= endIndex; index--) {
+		for (int index = startIndex; index < numberString.length(); index++) {
 			if (!Character.isDigit(numberString.charAt(index))) {
 				throw new NumberFormatException("The string is malformed");
 			}
 
-			num += (numberString.charAt(index) - '0') * counter;
-			counter *= 10;
+			num = num * 10 + (numberString.charAt(index) - '0');
 		}
 
 		return isNegative ? num * -1 : num;
