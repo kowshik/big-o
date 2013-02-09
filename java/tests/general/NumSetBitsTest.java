@@ -1,4 +1,4 @@
-package common;
+package general;
 
 import static org.junit.Assert.assertEquals;
 
