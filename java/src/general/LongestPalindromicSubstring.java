@@ -12,6 +12,9 @@ public class LongestPalindromicSubstring {
 		}
 
 		Pair<Integer, Integer> maxPalindrome = new Pair<Integer, Integer>();
+		maxPalindrome.setFirst(-1);
+		maxPalindrome.setSecond(-1);
+
 		Pair<Integer, Integer> current = new Pair<Integer, Integer>();
 		for (int index = 0; index < s.length(); index++) {
 			current.setFirst(index - 1);
@@ -30,14 +33,14 @@ public class LongestPalindromicSubstring {
 	private static void getLongestPalindromicSubstring(String s,
 			Pair<Integer, Integer> current, Pair<Integer, Integer> maxPalindrome) {
 		int startIndex = current.getFirst(), endIndex = current.getSecond();
-		while (startIndex >= 0 && endIndex <= s.length()
+		while (startIndex >= 0 && endIndex < s.length()
 				&& s.charAt(startIndex) == s.charAt(endIndex)) {
 			startIndex--;
 			endIndex++;
 		}
 
-		current.setFirst(startIndex);
-		current.setSecond(endIndex);
+		current.setFirst(startIndex + 1);
+		current.setSecond(endIndex - 1);
 		if (exceeded(current, maxPalindrome)) {
 			maxPalindrome.setFirst(current.getFirst());
 			maxPalindrome.setSecond(current.getSecond());
