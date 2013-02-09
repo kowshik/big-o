@@ -37,5 +37,3 @@ module General
     end
   end
 end
-
-puts General::get_longest_palindromic_substring("abbacddca")
