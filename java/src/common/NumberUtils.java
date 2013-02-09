@@ -31,4 +31,54 @@ public class NumberUtils {
 
 		return isNegative ? num * -1 : num;
 	}
+
+	public static String itoa(int number) {
+		int length = length(number);
+		if (number < 0) {
+			length++;
+		}
+
+		char[] digits = new char[length];
+		if (number == 0) {
+			digits[0] = '0';
+		}
+		if (number < 0) {
+			digits[0] = '-';
+			number *= -1;
+		}
+
+		for (int index = length - 1; number != 0; index--, number /= 10) {
+			digits[index] = (char) ('0' + number % 10);
+		}
+
+		return new String(digits);
+	}
+
+	public static int length(int number) {
+		if (number == 0) {
+			return 1;
+		}
+
+		int length;
+		for (length = 0; number != 0; number /= 10, length++)
+			;
+
+		return length;
+	}
+
+	public static int reverse(int x) {
+		int given = x;
+		int reversed = 0;
+
+		while (x % 10 == 0 && x != 0) {
+			x /= 10;
+		}
+
+		while (x != 0) {
+			reversed = x % 10 + reversed * 10;
+			x /= 10;
+		}
+
+		return given < 0 ? reversed * -1 : reversed;
+	}
 }
