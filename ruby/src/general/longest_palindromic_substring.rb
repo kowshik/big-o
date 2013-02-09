@@ -1,5 +1,7 @@
 module General
   class << self
+
+    # Given a string S, find the longest palindromic substring in S.
     def get_longest_palindromic_substring(str)
       return str if !str || str.size == 0
 
