@@ -16,11 +16,12 @@ public class ArrayUtils {
 		StringBuffer buffer = new StringBuffer();
 		int index = 0;
 		buffer.append("[");
-		buffer.append(array[index].toString());
+		buffer.append(array[index] == null ? "null" : array[index].toString());
 		index++;
 		for (; index < array.length; index++) {
 			buffer.append(", ");
-			buffer.append(array[index].toString());
+			buffer.append(array[index] == null ? "null" : array[index]
+					.toString());
 		}
 		buffer.append("]");
 
