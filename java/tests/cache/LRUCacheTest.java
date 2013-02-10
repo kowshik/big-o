@@ -85,4 +85,35 @@ public class LRUCacheTest {
 		assertEquals(4, tested.get(4).intValue());
 		assertEquals(5, tested.get(5).intValue());
 	}
+
+	@Test
+	public void setCapacity_evictsWhenCapacityIsLowered() {
+		tested.put(1, 1);
+		tested.put(2, 2);
+		tested.put(3, 3);
+		tested.put(4, 4);
+		tested.put(5, 5);
+
+		tested.setCapacity(1);
+
+		assertEquals(1, tested.getSize());
+	}
+
+	@Test
+	public void setCapacity_doesNotEvictWhenCapacityIsIncreased() {
+		tested.put(1, 1);
+		tested.put(2, 2);
+		tested.put(3, 3);
+		tested.put(4, 4);
+		tested.put(5, 5);
+
+		tested.setCapacity(tested.getCapacity() + 1);
+
+		assertEquals(5, tested.getSize());
+		assertEquals(1, tested.get(1).intValue());
+		assertEquals(2, tested.get(2).intValue());
+		assertEquals(3, tested.get(3).intValue());
+		assertEquals(4, tested.get(4).intValue());
+		assertEquals(5, tested.get(5).intValue());
+	}
 }

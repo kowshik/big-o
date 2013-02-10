@@ -73,7 +73,18 @@ public class LRUCache<K, V> implements Cache<K, V> {
 
 	public void setCapacity(int capacity) {
 		checkCapacity(capacity);
+
+		for (int count = cache.size(); count > capacity; count--) {
+			CacheNode<K, V> evicted = evict();
+			cache.remove(evicted.getKey());
+		}
+
 		this.capacity = capacity;
+	}
+
+	@Override
+	public int getSize() {
+		return cache.size();
 	}
 
 	private void checkCapacity(int capacity) {
