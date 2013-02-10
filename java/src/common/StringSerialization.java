@@ -1,5 +1,7 @@
 package common;
 
+import java.util.Arrays;
+
 /**
  * Methods to serialize/deserialize an array of Strings.
  * 
@@ -8,10 +10,8 @@ package common;
  * Then, the following always returns true as the serialize and deserialize
  * methods are consistent:
  * 
- * deserialize(serialize(arrayOfStrings)).equals(arrayofStrings)
- * 
- * @author kprakasam
- * 
+ * java.util.Arrays.equals(deserializeStrings(serializeStrings(strings)),
+ * strings);
  */
 public class StringSerialization {
 	/**
@@ -135,5 +135,12 @@ public class StringSerialization {
 		ch |= (serialized[offset] & 0xff);
 		ch |= (serialized[offset + 1] & 0xff) << 8;
 		return ch;
+	}
+
+	public static void main(String[] args) {
+		String[] strings = { "ab", "ab" };
+
+		System.out.println(Arrays.equals(
+				deserializeStrings(serializeStrings(strings)), strings));
 	}
 }
