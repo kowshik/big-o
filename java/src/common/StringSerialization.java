@@ -1,6 +1,5 @@
 package common;
 
-import java.util.Arrays;
 
 /**
  * Methods to serialize/deserialize an array of Strings.
@@ -135,12 +134,5 @@ public class StringSerialization {
 		ch |= (serialized[offset] & 0xff);
 		ch |= (serialized[offset + 1] & 0xff) << 8;
 		return ch;
-	}
-
-	public static void main(String[] args) {
-		String[] strings = { "ab", "ab" };
-
-		System.out.println(Arrays.equals(
-				deserializeStrings(serializeStrings(strings)), strings));
 	}
 }
