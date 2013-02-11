@@ -81,4 +81,38 @@ public class NumberUtils {
 
 		return given < 0 ? reversed * -1 : reversed;
 	}
+
+	public static double pow(int x, int y) {
+		if (y < 0) {
+			return 1.0F / pow(x + 0L, (y * -1) + 0L);
+		}
+
+		return pow(x + 0L, y + 0L);
+	}
+
+	private static long pow(long x, long y) {
+		if (y < 0) {
+			throw new IllegalArgumentException(String.format(
+					" y can't be negative. you passed: %d", y));
+		}
+
+		if (y == 0) {
+			if (x == 0) {
+				return 0;
+			}
+
+			return 1;
+		}
+
+		if (y == 1) {
+			return x;
+		}
+
+		long pow = pow(x, y / 2);
+		if (y % 2 == 0) {
+			return pow * pow;
+		}
+
+		return pow * pow * x;
+	}
 }
