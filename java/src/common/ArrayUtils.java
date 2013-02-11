@@ -34,6 +34,12 @@ public class ArrayUtils {
 		array[barIndex] = temp;
 	}
 
+	public static void swap(long[] array, int fooIndex, int barIndex) {
+		long temp = array[fooIndex];
+		array[fooIndex] = array[barIndex];
+		array[barIndex] = temp;
+	}
+
 	public static <T> void swap(T[] array, int fooIndex, int barIndex) {
 		T temp = array[fooIndex];
 		array[fooIndex] = array[barIndex];
