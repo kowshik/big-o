@@ -86,4 +86,29 @@ public class SearchingTechniques {
 
 		return false;
 	}
+
+	public static <T> void printTopologicalOrder(
+			Map<GraphNode<T>, List<GraphNode<T>>> graph) {
+		Set<GraphNode<T>> visited = new HashSet<GraphNode<T>>();
+		for (Map.Entry<GraphNode<T>, List<GraphNode<T>>> entry : graph
+				.entrySet()) {
+			GraphNode<T> startNode = entry.getKey();
+			if (!visited.contains(startNode)) {
+				printTopologicalOrder(graph, startNode, visited);
+			}
+		}
+	}
+
+	public static <T> void printTopologicalOrder(
+			Map<GraphNode<T>, List<GraphNode<T>>> graph,
+			GraphNode<T> startNode, Set<GraphNode<T>> visited) {
+		visited.add(startNode);
+		for (GraphNode<T> adjacentNode : graph.get(startNode)) {
+			if (!visited.contains(adjacentNode)) {
+				printTopologicalOrder(graph, adjacentNode, visited);
+			}
+		}
+
+		System.out.printf("Visited => %s\n", startNode);
+	}
 }
