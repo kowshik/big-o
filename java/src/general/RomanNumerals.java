@@ -47,45 +47,27 @@ public class RomanNumerals {
 		}
 
 		StringBuffer roman = new StringBuffer();
-		int thousands = number / 1000;
-		while (thousands > 0) {
-			roman.append("M");
-			thousands -= 1;
-			number -= 1000;
-		}
+		String[] numerals = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X",
+				"IX", "V", "IV", "I" };
+		int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
 
-		char[] numerals = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
-		int[] values = { 1, 5, 10, 50, 100, 500, 1000 };
+		int index = 0;
+		int size = numerals.length;
+		while (number > 0 && index < size) {
 
-		int low = 4;
-		while (low >= 0) {
-			int quotient = number / values[low];
-			if (quotient > 0) {
-				if (quotient < 4) {
-					append(roman, numerals[low], quotient);
-				} else if (quotient == 4) {
-					roman.append(numerals[low]);
-					roman.append(numerals[low + 1]);
-				} else if (quotient < 9) {
-					roman.append(numerals[low + 1]);
-					append(roman, numerals[low], quotient - 5);
-				} else {
-					roman.append(numerals[low]);
-					roman.append(numerals[low + 2]);
-				}
+			if (values[index] <= number) {
+				roman.append(numerals[index]);
+				number = number - values[index];
+
+			} else {
+				index++;
 			}
-
-			number -= quotient * values[low];
-			low -= 2;
 		}
 
 		return roman.toString();
 	}
 
-	private static void append(StringBuffer buffer, char numeral, int times) {
-		while (times > 0) {
-			buffer.append(numeral);
-			times--;
-		}
+	public static void main(String[] args) {
+		System.out.println(decimalToRoman(999));
 	}
 }
