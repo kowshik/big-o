@@ -23,17 +23,15 @@ public class RomanNumerals {
 		for (int index = romanNumber.length() - 1; index >= 0;) {
 			char romanDecimal = romanNumber.charAt(index);
 
+			decimal += map.get(romanDecimal);
 			if (index > 0) {
 				char previousRomanDecimal = romanNumber.charAt(index - 1);
 				if (map.get(romanDecimal) > map.get(previousRomanDecimal)) {
-					decimal += map.get(romanDecimal)
-							- map.get(previousRomanDecimal);
-					index -= 2;
-					continue;
+					decimal -= map.get(previousRomanDecimal);
+					index--;
 				}
 			}
 
-			decimal += map.get(romanDecimal);
 			index--;
 		}
 
