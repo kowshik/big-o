@@ -1,16 +1,33 @@
 package general;
 
+/**
+ * Write a function to match a given string to a regular expression.
+ * 
+ * '.' Matches any single character.
+ * '*' Matches zero or more of the preceding element.
+ * 
+ * The matching should cover the entire input string (not partial).
+ * 
+ * Some examples:
+ *  isMatch("aa","a") → false
+ *  isMatch("aa","aa") → true
+ *  isMatch("aaa","aa") → false
+ *  isMatch("aa", "a*") → true
+ *  isMatch("aa", ".*") → true
+ *  isMatch("ab", ".*") → true
+ *  isMatch("aab", "c*a*b") → true
+ */
 public class RegexMatching {
 
-	public static boolean matchRegex(String str, String regex) {
+	public static boolean isMatch(String str, String regex) {
 		if (str == null || regex == null) {
 			return false;
 		}
 
-		return matchRegex(str, 0, regex, 0);
+		return isMatch(str, 0, regex, 0);
 	}
 
-	private static boolean matchRegex(String str, int strIndex, String regex,
+	private static boolean isMatch(String str, int strIndex, String regex,
 			int regexIndex) {
 		if (strIndex >= str.length() && regexIndex == regex.length()) {
 			return true;
@@ -27,7 +44,7 @@ public class RegexMatching {
 			if (nextRegexChar == '*') {
 				// Check if we could skip this wild card and still match the
 				// regex.
-				if (matchRegex(str, strIndex, regex, regexIndex + 2)) {
+				if (isMatch(str, strIndex, regex, regexIndex + 2)) {
 					return true;
 				}
 
@@ -40,7 +57,7 @@ public class RegexMatching {
 				if (regexChar == '.') {
 					for (int wildCardMatcher = strIndex; wildCardMatcher < str
 							.length(); wildCardMatcher++) {
-						if (matchRegex(str, wildCardMatcher + 1, regex,
+						if (isMatch(str, wildCardMatcher + 1, regex,
 								regexIndex + 2)) {
 							return true;
 						}
@@ -51,7 +68,7 @@ public class RegexMatching {
 				// character, we recursively check if there is a regex match.
 				for (int wildCardMatcher = strIndex; wildCardMatcher < str
 						.length() && str.charAt(wildCardMatcher) == regexChar; wildCardMatcher++) {
-					if (matchRegex(str, wildCardMatcher + 1, regex,
+					if (isMatch(str, wildCardMatcher + 1, regex,
 							regexIndex + 2)) {
 						return true;
 					}
@@ -73,11 +90,11 @@ public class RegexMatching {
 		}
 
 		if (regexChar == '.') {
-			return matchRegex(str, strIndex + 1, regex, regexIndex + 1);
+			return isMatch(str, strIndex + 1, regex, regexIndex + 1);
 		}
 
 		if (regexChar == str.charAt(strIndex)) {
-			return matchRegex(str, strIndex + 1, regex, regexIndex + 1);
+			return isMatch(str, strIndex + 1, regex, regexIndex + 1);
 		}
 
 		return false;
