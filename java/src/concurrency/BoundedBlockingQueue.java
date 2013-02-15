@@ -46,7 +46,8 @@ public class BoundedBlockingQueue<T> {
 		long threadId = Thread.currentThread().getId();
 		writerQueue.add(threadId);
 
-		while (writerQueue.size() == capacity || writerQueue.peek() != threadId) {
+		while (elementQueue.size() == capacity
+				|| writerQueue.peek() != threadId) {
 			wait();
 		}
 
