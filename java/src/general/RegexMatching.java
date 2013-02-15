@@ -3,19 +3,20 @@ package general;
 /**
  * Write a function to match a given string to a regular expression.
  * 
- * '.' Matches any single character.
- * '*' Matches zero or more of the preceding element.
+ * '.' Matches any single character. '*' Matches zero or more of the preceding
+ * element.
  * 
  * The matching should cover the entire input string (not partial).
  * 
  * Some examples:
- *  isMatch("aa","a") → false
- *  isMatch("aa","aa") → true
- *  isMatch("aaa","aa") → false
- *  isMatch("aa", "a*") → true
- *  isMatch("aa", ".*") → true
- *  isMatch("ab", ".*") → true
- *  isMatch("aab", "c*a*b") → true
+ * 
+ * isMatch("aa","a") → false
+ * isMatch("aa","aa") → true
+ * isMatch("aaa","aa") → false
+ * isMatch("aa", "a*") → true
+ * isMatch("aa", ".*") → true
+ * isMatch("ab", ".*") → true
+ * isMatch("aab", "c*a*b") → true
  */
 public class RegexMatching {
 
@@ -68,8 +69,7 @@ public class RegexMatching {
 				// character, we recursively check if there is a regex match.
 				for (int wildCardMatcher = strIndex; wildCardMatcher < str
 						.length() && str.charAt(wildCardMatcher) == regexChar; wildCardMatcher++) {
-					if (isMatch(str, wildCardMatcher + 1, regex,
-							regexIndex + 2)) {
+					if (isMatch(str, wildCardMatcher + 1, regex, regexIndex + 2)) {
 						return true;
 					}
 				}
@@ -89,11 +89,7 @@ public class RegexMatching {
 			return false;
 		}
 
-		if (regexChar == '.') {
-			return isMatch(str, strIndex + 1, regex, regexIndex + 1);
-		}
-
-		if (regexChar == str.charAt(strIndex)) {
+		if (regexChar == '.' || (regexChar == str.charAt(strIndex))) {
 			return isMatch(str, strIndex + 1, regex, regexIndex + 1);
 		}
 
