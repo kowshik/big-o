@@ -1,4 +1,4 @@
-package concurrency;
+it package concurrency;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -21,8 +21,8 @@ import java.util.Queue;
  * the element, and other reader threads should continue to remain blocked.
  * Similarly, if there are 10 writers waiting to write to the queue, and if
  * slots become available in the queue for writing, then the writer thread that
- * arrived earliest in time should be allowed access to write the element, and
- * the other writer threads should continue to remain blocked.
+ * arrived earliest in time should be allowed access to write to the free slot,
+ * and the other writer threads should continue to remain blocked.
  */
 public class BoundedBlockingQueue<T> {
 	private final Queue<T> elementQueue;
