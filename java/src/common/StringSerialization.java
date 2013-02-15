@@ -1,10 +1,9 @@
 package common;
 
-
 /**
  * Methods to serialize/deserialize an array of Strings.
  * 
- * i.e. Assume: String[] strings = {“abcd”, “efgh”};
+ * i.e. Assume: String[] strings = {"abcd", "efgh"};
  * 
  * Then, the following always returns true as the serialize and deserialize
  * methods are consistent:
