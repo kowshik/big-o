@@ -1,5 +1,21 @@
 package general;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import common.Pair;
+
+/**
+ * We are given 3 strings: str1, str2, and str3. Str3 is said to be a shuffle of
+ * str1 and str2 if it can be formed by interleaving the characters of str1 and
+ * str2 in a way that maintains the left to right ordering of the characters
+ * from each string. For example, given str1=”abc” and str2=”def”, str3=”dabecf”
+ * is a valid shuffle since it preserves the character ordering of the two
+ * strings. So, given these 3 strings write a function that detects whether str3
+ * is a valid shuffle of str1 and str2.
+ * 
+ * http://www.ardendertat.com/2011/10/10/programming-interview-questions-6-combine-two-strings/
+ */
 public class CheckInterleavedStrings {
 
 	public static boolean isValidInterleavedString(String foo, String bar,
@@ -12,11 +28,17 @@ public class CheckInterleavedStrings {
 			return false;
 		}
 
-		return isValidInterleavedString(foo, 0, bar, 0, target, 0);
+		return isValidInterleavedString(foo, 0, bar, 0, target, 0,
+				new HashSet<Pair<Integer, Integer>>());
 	}
 
 	private static boolean isValidInterleavedString(String foo, int fooIndex,
-			String bar, int barIndex, String target, int targetIndex) {
+			String bar, int barIndex, String target, int targetIndex,
+			Set<Pair<Integer, Integer>> known) {
+		if (known.contains(new Pair<Integer, Integer>(fooIndex, barIndex))) {
+			return false;
+		}
+
 		if (targetIndex == target.length()) {
 			if (fooIndex != foo.length() || barIndex != bar.length()) {
 				return false;
@@ -31,7 +53,7 @@ public class CheckInterleavedStrings {
 				: false;
 		if (found) {
 			valid = isValidInterleavedString(foo, fooIndex + 1, bar, barIndex,
-					target, targetIndex + 1);
+					target, targetIndex + 1, known);
 		}
 
 		if (!valid) {
@@ -39,14 +61,14 @@ public class CheckInterleavedStrings {
 					: false;
 			if (found) {
 				valid = isValidInterleavedString(foo, fooIndex, bar,
-						barIndex + 1, target, targetIndex + 1);
+						barIndex + 1, target, targetIndex + 1, known);
 			}
 		}
 
-		return valid;
-	}
+		if (!valid) {
+			known.add(new Pair<Integer, Integer>(fooIndex, barIndex));
+		}
 
-	public static void main(String[] args) {
-		System.out.println(isValidInterleavedString("abc", "def", "daecfb"));
+		return valid;
 	}
 }
