@@ -20,6 +20,10 @@ public class FindNumHops {
 			throw new NullPointerException("array can't be null.");
 		}
 
+		if (array.length == 0) {
+			return 0;
+		}
+
 		Set<Integer> steps = new HashSet<Integer>();
 		int lastSeenStep = array.length - 1;
 		steps.add(lastSeenStep);
