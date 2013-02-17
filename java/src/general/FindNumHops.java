@@ -8,11 +8,11 @@ import java.util.Set;
  * You are given an array of size N containing *only* non-negative integers
  * (i.e. >= 0) From any index in the array, a hop can be either of the
  * following:
- *  [1] Jump array[index] positions
- *  [2] Jump 1 position
- *  
- * The target of this question is to find the number of hops required to
- * reach the last element in the array from the first element.
+ * 
+ * [1] Jump array[index] positions [2] Jump 1 position
+ * 
+ * The target of this question is to find the number of hops required to reach
+ * the last element in the array from the first element.
  */
 public class FindNumHops {
 	public static int findNumHops(int[] array) {
@@ -21,8 +21,8 @@ public class FindNumHops {
 		}
 
 		Set<Integer> steps = new HashSet<Integer>();
-		steps.add(array.length - 1);
 		int lastSeenStep = array.length - 1;
+		steps.add(lastSeenStep);
 
 		for (int index = array.length - 2; index >= 0; index--) {
 			int hopSize = array[index];
@@ -41,6 +41,6 @@ public class FindNumHops {
 			}
 		}
 
-		return steps.size() - 2 + lastSeenStep;
+		return steps.size() - 1 + lastSeenStep;
 	}
 }
