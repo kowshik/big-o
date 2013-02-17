@@ -9,6 +9,9 @@ module General
     # The target of this question is to find the number of hops required to
     # reach the last element in the array from the first element.
     def find_num_hops(array)
+      return unless array
+      return 0 if array.empty?
+
       steps = Set.new
       last_seen_step = array.length - 1
       steps.add(last_seen_step)
