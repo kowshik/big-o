@@ -1,0 +1,46 @@
+package general;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+ * You are given an array of size N containing *only* non-negative integers
+ * (i.e. >= 0) From any index in the array, a hop can be either of the
+ * following:
+ *  [1] Jump array[index] positions
+ *  [2] Jump 1 position
+ *  
+ * The target of this question is to find the number of hops required to
+ * reach the last element in the array from the first element.
+ */
+public class FindNumHops {
+	public static int findNumHops(int[] array) {
+		if (array == null) {
+			throw new NullPointerException("array can't be null.");
+		}
+
+		Set<Integer> steps = new HashSet<Integer>();
+		steps.add(array.length - 1);
+		int lastSeenStep = array.length - 1;
+
+		for (int index = array.length - 2; index >= 0; index--) {
+			int hopSize = array[index];
+			int reachableStep = hopSize + index;
+
+			if (steps.contains(reachableStep)) {
+				for (Iterator<Integer> iter = steps.iterator(); iter.hasNext();) {
+					int step = iter.next();
+					if (step < reachableStep) {
+						iter.remove();
+					}
+				}
+
+				steps.add(index);
+				lastSeenStep = index;
+			}
+		}
+
+		return steps.size() - 2 + lastSeenStep;
+	}
+}
