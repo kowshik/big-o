@@ -6,7 +6,7 @@ import common.Pair;
  * Given a BST, find the mode i.e. the value that occurs maximum number of
  * times.
  */
-public class FindMode {
+public class BstFindMode {
 	public static <T> T findMode(TreeNode<T> root) {
 		Pair<T, Integer> mode = new Pair<T, Integer>();
 		mode.setSecond(0);

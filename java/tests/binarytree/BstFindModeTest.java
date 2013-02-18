@@ -5,21 +5,21 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import binarytrees.FindMode;
+import binarytrees.BstFindMode;
 import binarytrees.TreeNode;
 
-public class FindModeTest {
+public class BstFindModeTest {
 	@Test
 	public void emptyBst() {
 		TreeNode<Integer> root = null;
-		Integer mode = FindMode.findMode(root);
+		Integer mode = BstFindMode.findMode(root);
 		assertNull(mode);
 	}
 
 	@Test
 	public void bstWithOneElement() {
 		TreeNode<Integer> root = new TreeNode<Integer>(1);
-		Integer mode = FindMode.findMode(root);
+		Integer mode = BstFindMode.findMode(root);
 		assertEquals(1, mode.intValue());
 	}
 
@@ -32,7 +32,7 @@ public class FindModeTest {
 		root.setLeft(rootLeft);
 		root.setRight(rootRight);
 
-		Integer mode = FindMode.findMode(root);
+		Integer mode = BstFindMode.findMode(root);
 		assertEquals(1, mode.intValue());
 	}
 
@@ -60,7 +60,7 @@ public class FindModeTest {
 
 		TreeNode<Integer> root = new TreeNode<Integer>(4);
 
-		Integer mode = FindMode.findMode(root);
+		Integer mode = BstFindMode.findMode(root);
 		assertEquals(4, mode.intValue());
 	}
 }
