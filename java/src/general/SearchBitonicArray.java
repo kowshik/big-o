@@ -85,9 +85,6 @@ public class SearchBitonicArray {
 		//                    \
 		//                     \
 		//                      E
-        //
-		// Second case:
-		//
 		//           V /\ V
 		//          M /  \ 
 		//           /    \
@@ -112,7 +109,6 @@ public class SearchBitonicArray {
 		//                    \ V
 		//                     \ V
 		//                      E
-        // Second case:
 		//             /\
 		//          M /  \
 		//         V /    \
