@@ -1,14 +1,19 @@
 package sorting;
 
+import java.lang.reflect.Array;
 import java.util.Comparator;
 
 public class MergeSort {
-	public static int[] mergeSort(int[] array, Comparator<Integer> comparator) {
+
+	public static <T> T[] mergeSort(Class<T> type, T[] array,
+			Comparator<T> comparator) {
 		if (array.length == 0) {
-			return new int[] {};
+			@SuppressWarnings("unchecked")
+			T[] toReturn = (T[]) Array.newInstance(type, 0);
+			return toReturn;
 		}
 
-		int[] sorted = mergeSort(array, 0, array.length - 1, comparator);
+		T[] sorted = mergeSort(type, array, 0, array.length - 1, comparator);
 		for (int index = 0; index < array.length; index++) {
 			array[index] = sorted[index];
 		}
@@ -16,22 +21,27 @@ public class MergeSort {
 		return sorted;
 	}
 
-	private static int[] mergeSort(int[] array, int start, int end,
-			Comparator<Integer> comparator) {
+	private static <T> T[] mergeSort(Class<T> type, T[] array, int start,
+			int end, Comparator<T> comparator) {
 		if (start == end) {
-			return new int[] { array[start] };
+			@SuppressWarnings("unchecked")
+			T[] toReturn = (T[]) Array.newInstance(type, 1);
+			toReturn[0] = array[start];
+
+			return toReturn;
 		}
 
-		int[] left = mergeSort(array, start, (start + end) / 2, comparator);
-		int[] right = mergeSort(array, (start + end) / 2 + 1, end, comparator);
-		int[] sorted = merge(left, right, comparator);
+		T[] left = mergeSort(type, array, start, (start + end) / 2, comparator);
+		T[] right = mergeSort(type, array, (start + end) / 2 + 1, end,
+				comparator);
 
-		return sorted;
+		return merge(type, left, right, comparator);
 	}
 
-	public static int[] merge(int[] foo, int[] bar,
-			Comparator<Integer> comparator) {
-		int[] merged = new int[foo.length + bar.length];
+	public static <T> T[] merge(Class<T> type, T[] foo, T[] bar,
+			Comparator<T> comparator) {
+		@SuppressWarnings("unchecked")
+		T[] merged = (T[]) Array.newInstance(type, foo.length + bar.length);
 
 		int fooIndex = 0, barIndex = 0, mergedIndex = 0;
 		while (fooIndex < foo.length && barIndex < bar.length) {
