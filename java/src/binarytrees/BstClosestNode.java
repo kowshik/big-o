@@ -1,5 +1,9 @@
 package binarytrees;
 
+/**
+ * Given the root of a BST and a node in the tree, find the node closest to the
+ * given node.
+ */
 public class BstClosestNode {
 	public static TreeNode<Integer> findClosestNode(
 			TreeNode<Integer> bstRootNode, TreeNode<Integer> node) {
