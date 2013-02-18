@@ -13,6 +13,10 @@ public class ArrayUtils {
 	}
 
 	public static <T> String arrayToString(T[] array) {
+		if (array.length == 0) {
+			return "[]";
+		}
+
 		StringBuffer buffer = new StringBuffer();
 		int index = 0;
 		buffer.append("[");
