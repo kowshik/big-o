@@ -69,9 +69,11 @@ public class SearchBitonicArray {
 		}
 
 
-		//   if value > array[middleIndex], then the value could exist
-		//   to the right or the left of middleIndex, so we have to
-		//   search on both sides of middleIndex.
+		// If value > array[middleIndex], then the value could exist
+		// to the right or the left of middleIndex, so we have to
+		// search on both sides of middleIndex.
+		//
+		// First case:
 		//
 		//
 		//           V /\ V
@@ -84,6 +86,8 @@ public class SearchBitonicArray {
 		//                     \
 		//                      E
         //
+		// Second case:
+		//
 		//           V /\ V
 		//          M /  \ 
 		//           /    \
@@ -93,9 +97,11 @@ public class SearchBitonicArray {
 		//       /
 		//      S
 		//
-		//   Similarly, if value < array[middleIndex], then the value could exist
-		//   to the right or the left of middleIndex, so we have to
-		//   search on both sides of middleIndex.
+		//  Similarly, if value < array[middleIndex], then the value could exist
+		//  to the right or the left of middleIndex, so we have to
+		//  search on both sides of middleIndex.
+		//
+		// First case:
 		//
 		//             /\ 
 		//            /  \ M
@@ -106,7 +112,7 @@ public class SearchBitonicArray {
 		//                    \ V
 		//                     \ V
 		//                      E
-        //
+        // Second case:
 		//             /\
 		//          M /  \
 		//         V /    \
