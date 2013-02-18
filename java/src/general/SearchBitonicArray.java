@@ -32,17 +32,21 @@ public class SearchBitonicArray {
 
 		if (array[middleIndex] < array[startIndex]) {
 			//
-			//    /\
-			//   /  \
-			//  S    \
-			//        \ M
-			//         \
-			//          \
+			//  V /\ V
+			// V /  \ V
+			//  S    \ V
+			//        \ V
+			//         \ M
+			//          \ 
 			//           \
 			//            \
 			//             E
 			//
-			// Here, S => startIndex, M => middleIndex, E => endIndex.
+			// Here,
+			//   S => startIndex
+			//   M => middleIndex
+			//   E => endIndex
+			//   V => possible indices of searched value.
 			//
 			// In the diagram above, by definition of bitonic
 			// array, when array[middleIndex] < array[startIndex],
@@ -51,10 +55,67 @@ public class SearchBitonicArray {
 				return searchBitonicArray(array, value, startIndex,
 						middleIndex - 1);
 			}
-
+			//
+			//    /\
+			//   /  \ 
+			//  S    \
+			//        \ M
+			//         \ V
+			//          \ V
+			//           \ V
+			//            \ V
+			//             E
 			return searchBitonicArray(array, value, middleIndex + 1, endIndex);
 		}
 
+
+		//   if value > array[middleIndex], then the value could exist
+		//   to the right or the left of middleIndex, so we have to
+		//   search on both sides of middleIndex.
+		//
+		//
+		//           V /\ V
+		//            /  \ M
+		//           /    \
+		//          /      \
+		//         S        \
+		//                   \
+		//                    \
+		//                     \
+		//                      E
+        //
+		//           V /\ V
+		//          M /  \ 
+		//           /    \
+		//          /      \
+		//         /        \
+		//        /          E
+		//       /
+		//      S
+		//
+		//   Similarly, if value < array[middleIndex], then the value could exist
+		//   to the right or the left of middleIndex, so we have to
+		//   search on both sides of middleIndex.
+		//
+		//             /\ 
+		//            /  \ M
+		//           /    \ V
+		//          /      \ V
+		//         S        \ V
+		//                   \ V
+		//                    \ V
+		//                     \ V
+		//                      E
+        //
+		//             /\
+		//          M /  \
+		//         V /    \
+		//        V /      \
+		//       V /        \
+		//      V /          E
+		//     V /
+		//      S
+		//
 		int found = searchBitonicArray(array, value, startIndex,
 				middleIndex - 1);
 		if (found == -1) {
