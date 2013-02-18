@@ -73,9 +73,6 @@ public class SearchBitonicArray {
 		// to the right or the left of middleIndex, so we have to
 		// search on both sides of middleIndex.
 		//
-		// First case:
-		//
-		//
 		//           V /\ V
 		//            /  \ M
 		//           /    \
