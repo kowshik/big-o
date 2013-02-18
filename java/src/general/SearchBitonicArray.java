@@ -1,18 +1,14 @@
 package general;
 
-
 /**
  * Search in a bitonic array. An array is bitonic if it is comprised of an
  * increasing sequence of integers followed immediately by a decreasing sequence
  * of integers. Write a program that, given a bitonic array of N distinct
  * integer values, determines whether a given integer is in the array.
  * 
- * Standard version: Use ~3lgN compares in the worst case. Optimal version: Use
- * ~2lgN compares in the worst case (and prove that no algorithm can guarantee
- * to perform fewer than ~2lgN compares in the worst case).
- * 
- * @author kprakasam
- * 
+ * Standard version: Use ~3lgN compares in the worst case.
+ * Optimal version: Use ~2lgN compares in the worst case (and prove that
+ * no algorithm can guarantee to perform fewer than ~2lgN compares in the worst case).
  */
 public class SearchBitonicArray {
 	public static int searchBitonicArray(int[] array, int value) {
@@ -36,15 +32,15 @@ public class SearchBitonicArray {
 
 		if (array[middleIndex] < array[startIndex]) {
 			//
-			// /\
-			// / \
-			// S \
-			// \ M
-			// \
-			// \
-			// \
-			// \
-			// E
+			//    /\
+			//   /  \
+			//  S    \
+			//        \ M
+			//         \
+			//          \
+			//           \
+			//            \
+			//             E
 			//
 			// Here, S => startIndex, M => middleIndex, E => endIndex.
 			//
