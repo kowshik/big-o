@@ -15,16 +15,10 @@ import java.util.Arrays;
  * 
  * Sample structure of log file:
  * 
- * T1: A B
- * T2: C D
- * T3: A D 
- * .
- * .
- * .
- * etc.
+ * T1: A B T2: C D T3: A D . . . etc.
  * 
- * "T1: A B" => This means A and B became friends at time T1.
- * Note that T1 < T2 < T3 etc. (i.e. file is sorted based on timestamps in ascending order)
+ * "T1: A B" => This means A and B became friends at time T1. Note that T1 < T2
+ * < T3 etc. (i.e. file is sorted based on timestamps in ascending order)
  * 
  * @author kprakasam
  * 
@@ -73,6 +67,10 @@ class WeightedUnionFind {
 		if (fooRoot != barRoot) {
 			numRoots -= 1;
 
+			// The key here is that the size of the smaller tree cannot double
+			// more than log(size) times. Because, 2 ^ log(size) is >= size.
+			// Therefore, weighted find and union operations have O(log(size))
+			// time complexity.
 			if (sizes[fooRoot] < sizes[barRoot]) {
 				// barRoot is the new root for foo.
 				graph[fooRoot] = barRoot;
