@@ -17,6 +17,6 @@ public class TreeHasPathSum {
 		}
 		return hasPathSum(root.getLeft(), sum - value)
 				|| hasPathSum(root.getRight(), sum - value)
-				|| (sum - value == 0);
+				|| (sum - value == 0 && !root.hasLeft() && !root.hasRight());
 	}
 }
