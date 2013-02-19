@@ -12,6 +12,15 @@ public class ArrayUtils {
 		return converted;
 	}
 
+	public static Character[] autoBox(char[] array) {
+		Character[] converted = new Character[array.length];
+		for (int index = 0; index < array.length; index++) {
+			converted[index] = array[index];
+		}
+
+		return converted;
+	}
+
 	public static <T> String arrayToString(T[] array) {
 		if (array.length == 0) {
 			return "[]";

@@ -44,4 +44,14 @@ public class TreeNode<T> {
 	public boolean hasValue() {
 		return getValue() != null;
 	}
+
+	@Override
+	public String toString() {
+		if (getValue() != null) {
+			return getValue().toString();
+		}
+
+		return "";
+	}
+
 }
