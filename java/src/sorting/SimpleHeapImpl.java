@@ -79,23 +79,27 @@ public class SimpleHeapImpl<T> implements Heap<T> {
 	private void heapify(int length, int rootIndex) {
 		int indexToBeSwapped = rootIndex;
 
-		if (leftChildIndex(rootIndex) < length) {
-			if (comparator.compare(heap.get(leftChildIndex(rootIndex)),
-					heap.get(indexToBeSwapped)) > 0) {
-				indexToBeSwapped = leftChildIndex(rootIndex);
+		while (true) {
+			if (leftChildIndex(rootIndex) < length) {
+				if (comparator.compare(heap.get(leftChildIndex(rootIndex)),
+						heap.get(indexToBeSwapped)) > 0) {
+					indexToBeSwapped = leftChildIndex(rootIndex);
+				}
 			}
-		}
 
-		if (rightChildIndex(rootIndex) < length) {
-			if (comparator.compare(heap.get(rightChildIndex(rootIndex)),
-					heap.get(indexToBeSwapped)) > 0) {
-				indexToBeSwapped = rightChildIndex(rootIndex);
+			if (rightChildIndex(rootIndex) < length) {
+				if (comparator.compare(heap.get(rightChildIndex(rootIndex)),
+						heap.get(indexToBeSwapped)) > 0) {
+					indexToBeSwapped = rightChildIndex(rootIndex);
+				}
 			}
-		}
 
-		if (indexToBeSwapped != rootIndex) {
+			if (indexToBeSwapped == rootIndex) {
+				break;
+			}
+
 			common.ListUtils.swap(heap, rootIndex, indexToBeSwapped);
-			heapify(length, indexToBeSwapped);
+			rootIndex = indexToBeSwapped;
 		}
 	}
 
