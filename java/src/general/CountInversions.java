@@ -1,4 +1,4 @@
-git apackage general;
+package general;
 
 /**
  * Count number of inversions in an array of integers. An inversion is a pair
