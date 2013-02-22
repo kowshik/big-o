@@ -41,6 +41,25 @@ public class ArrayUtils {
 		return buffer.toString();
 	}
 
+	public static <T> String arrayToString(int[] array) {
+		if (array.length == 0) {
+			return "[]";
+		}
+
+		StringBuffer buffer = new StringBuffer();
+		int index = 0;
+		buffer.append("[");
+		buffer.append(Integer.toString(array[index]));
+		index++;
+		for (; index < array.length; index++) {
+			buffer.append(", ");
+			buffer.append(Integer.toString(array[index]));
+		}
+		buffer.append("]");
+
+		return buffer.toString();
+	}
+
 	public static void swap(int[] array, int fooIndex, int barIndex) {
 		int temp = array[fooIndex];
 		array[fooIndex] = array[barIndex];
@@ -77,5 +96,11 @@ public class ArrayUtils {
 		}
 
 		return -1;
+	}
+
+	public static void swap(Integer[][] table, int a, int b, int c, int d) {
+		Integer temp = table[a][b];
+		table[a][b] = table[c][d];
+		table[c][d] = temp;
 	}
 }
