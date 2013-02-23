@@ -1,4 +1,6 @@
 package trees;
+
+import java.util.LinkedList;
 import java.util.List;
 
 public class NaryTreeNode<T> {
@@ -7,6 +9,7 @@ public class NaryTreeNode<T> {
 
 	public NaryTreeNode(T value) {
 		this.value = value;
+		this.children = new LinkedList<NaryTreeNode<T>>();
 	}
 
 	public NaryTreeNode() {
