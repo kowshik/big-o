@@ -1,4 +1,4 @@
-package common;
+package general;
 
 /**
  * Methods to serialize/deserialize an array of Strings.
