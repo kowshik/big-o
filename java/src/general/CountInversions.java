@@ -7,11 +7,11 @@ package general;
 public class CountInversions {
 	public static long countInversions(int[] array) {
 		return countInversions(array, 0, array.length - 1,
-				new int[array.length], -1);
+				new int[array.length]);
 	}
 
 	private static long countInversions(int[] array, int start, int end,
-			int[] merged, int indent) {
+			int[] merged) {
 		if (start == end) {
 			merged[0] = array[start];
 			return 0L;
@@ -20,11 +20,9 @@ public class CountInversions {
 		int middle = (start + end) / 2;
 
 		int[] left = new int[middle - start + 1];
-		long leftInversions = countInversions(array, start, middle, left,
-				indent);
+		long leftInversions = countInversions(array, start, middle, left);
 		int[] right = new int[end - middle];
-		long rightInversions = countInversions(array, middle + 1, end, right,
-				indent);
+		long rightInversions = countInversions(array, middle + 1, end, right);
 
 		return leftInversions + rightInversions
 				+ mergeAndCountInversions(left, right, merged);
