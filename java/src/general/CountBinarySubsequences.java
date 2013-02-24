@@ -11,12 +11,15 @@ public class CountBinarySubsequences {
 	 * 
 	 * Recursive definition of subsequence counting:
 	 * 
-	 * We have the two strings: Needle[1 ... N] and Haystack [1 ... M].
+	 * We have the two strings: Needle[1 ... N] and Haystack [1 ... M]. We need
+	 * to find # of occurences of needle in haystack. Lets call Needle as X and
+	 * Haystack as H.
 	 * 
 	 * SubsequenceCount(X[P ... N], H[Q ... M]) =
 	 * 
-	 * if X[P] != H[Q]: SubsequenceCount(X[P ... N], H[Q+1 ... M])
-	 * otherwise: SubsequenceCount(X[P+1 ... N], H[Q+1 ... M]) + SubsequenceCount(X[P ... N], H[Q+1 ... M])
+	 * if X[P] != H[Q]: SubsequenceCount(X[P ... N], H[Q+1 ... M]) otherwise:
+	 * SubsequenceCount(X[P+1 ... N], H[Q+1 ... M]) + SubsequenceCount(X[P ...
+	 * N], H[Q+1 ... M])
 	 * 
 	 * @param haystack
 	 *            string containing 0s and 1s to be searched for subsequences
