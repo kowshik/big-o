@@ -49,6 +49,9 @@ public class BstFindMode {
 					mode.setFirst(current.getFirst());
 					mode.setSecond(current.getSecond());
 				}
+
+				current.setFirst(root.getValue());
+				current.setSecond(1);
 			}
 		}
 
