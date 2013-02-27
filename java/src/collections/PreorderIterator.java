@@ -6,6 +6,9 @@ import java.util.Stack;
 
 import binarytrees.TreeNode;
 
+/**
+ * An iterator that iterates through a binary tree in pre-order.
+ */
 public class PreorderIterator<T> implements Iterator<T> {
 	private T nextItem;
 	private final Stack<TreeNode<T>> stack;
