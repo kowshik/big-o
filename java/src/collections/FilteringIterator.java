@@ -54,6 +54,7 @@ public class FilteringIterator<T> implements Iterator<T> {
 			throw new IllegalStateException();
 		}
 
+		dirty = false;
 		iterator.remove();
 	}
 }
