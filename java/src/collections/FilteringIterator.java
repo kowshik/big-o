@@ -10,11 +10,13 @@ public class FilteringIterator<T> implements Iterator<T> {
 	private final Iterator<T> iterator;
 	private final Predicate<T> predicate;
 	private T nextItem;
+	private boolean dirty;
 
 	public FilteringIterator(Iterator<T> iterator, Predicate<T> predicate) {
 		this.iterator = iterator;
 		this.predicate = predicate;
 		nextItem = null;
+		this.dirty = false;
 	}
 
 	@Override
@@ -42,14 +44,16 @@ public class FilteringIterator<T> implements Iterator<T> {
 
 		T toReturn = nextItem;
 		nextItem = null;
+		dirty = true;
 		return toReturn;
 	}
 
 	@Override
 	public void remove() {
-		iterator.remove();
-		if (nextItem != null) {
-			nextItem = null;
+		if (!dirty) {
+			throw new IllegalStateException();
 		}
+
+		iterator.remove();
 	}
 }
