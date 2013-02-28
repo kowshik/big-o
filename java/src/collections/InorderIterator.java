@@ -66,7 +66,7 @@ public class InorderIterator<T> implements Iterator<T> {
 		throw new UnsupportedOperationException();
 	}
 
-	// Leaving the method below for some quick testing.
+	// Some quick testing below.
 	public static void main(String[] args) {
 		TreeNode<Integer> ll = new TreeNode<Integer>(1);
 		TreeNode<Integer> l = new TreeNode<Integer>(2);
