@@ -40,7 +40,6 @@ public class LevelOrderIterator<T> implements Iterator<T> {
 		}
 
 		nextItem = node.getValue();
-		;
 		return true;
 	}
 
