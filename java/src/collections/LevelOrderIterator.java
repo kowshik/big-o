@@ -56,7 +56,6 @@ public class LevelOrderIterator<T> implements Iterator<T> {
 
 	@Override
 	public void remove() {
-		// TODO Auto-generated method stub
-
+		throw new UnsupportedOperationException();
 	}
 }
