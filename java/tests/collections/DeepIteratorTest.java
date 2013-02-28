@@ -5,7 +5,9 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 
 import org.junit.Test;
@@ -82,5 +84,7 @@ public class DeepIteratorTest {
 
 	public static void main(String args[]) {
 		org.junit.runner.JUnitCore.main("collections.DeepIteratorTest");
+		Set<?> x = new HashSet<Integer>();
+		Collection<?> c = x;
 	}
 }
