@@ -56,8 +56,10 @@ public class MaxIterator<T> implements Iterator<T> {
 	public static void main(String[] args) {
 		Vector<Integer> vec = new Vector<Integer>();
 		vec.add(3);
-		vec.add(5);
+		vec.add(2);
 		vec.add(9);
+		vec.add(8);
+		vec.add(11);
 
 		MaxIterator<Integer> mi = new MaxIterator<Integer>(vec.iterator(),
 				new Comparator<Integer>() {
