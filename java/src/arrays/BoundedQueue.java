@@ -20,7 +20,7 @@ public class BoundedQueue<T> implements Queue<T> {
 		elements = new Object[capacity];
 		this.size = 0;
 		this.tail = 0;
-		this.head = -1;
+		this.head = 0;
 	}
 
 	@Override
