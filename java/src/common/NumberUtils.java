@@ -9,15 +9,14 @@ public class NumberUtils {
 
 		boolean isNegative = false;
 		int startIndex = 0;
-		if (numberString.charAt(0) == '-') {
-			isNegative = true;
+		if (numberString.charAt(0) == '+' || numberString.charAt(0) == '-') {
 			startIndex = 1;
-		} else if (numberString.charAt(0) == '+') {
-			startIndex = 1;
-		}
-
-		if (startIndex == 1 && numberString.length() == 1) {
-			throw new NumberFormatException("The string is malformed.");
+			if (numberString.charAt(0) == '-') {
+				isNegative = true;
+			}
+			if (numberString.length() == 1) {
+				throw new NumberFormatException("The string is malformed.");
+			}
 		}
 
 		int num = 0;
@@ -80,5 +79,24 @@ public class NumberUtils {
 		}
 
 		return given < 0 ? reversed * -1 : reversed;
+	}
+
+	public static boolean isValidInteger(String str) {
+		if (str == null || str.length() == 0) {
+			return false;
+		}
+
+		int index = 0;
+		if (str.charAt(0) == '+' || str.charAt(0) == '-') {
+			index++;
+		}
+
+		for (; index < str.length(); index++) {
+			if (!Character.isDigit(str.charAt(index))) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }
