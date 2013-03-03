@@ -22,6 +22,8 @@ public class LongestSubstringWithNoRepetition {
 					seen.remove(s.charAt(windowStart));
 				}
 
+				// we don't want to include this character because it already
+				// exists in the 'seen' set.
 				windowStart++;
 			} else {
 				seen.add(s.charAt(windowEnd));
@@ -45,5 +47,9 @@ public class LongestSubstringWithNoRepetition {
 		}
 
 		return (windowEnd - windowStart) > (maxWindowEnd - maxWindowStart);
+	}
+
+	public static void main(String[] args) {
+		System.out.println(lengthOfLongestSubstring("cbadaxyzmnopqrhij"));
 	}
 }
