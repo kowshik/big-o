@@ -1,7 +1,6 @@
 package collections.lists;
 
-
-public class SinglyLinkedList<T> implements CustomizedList<T> {
+public class SinglyLinkedList<T> implements List<T> {
 
 	private class Node<E> {
 		private E value;
@@ -54,5 +53,53 @@ public class SinglyLinkedList<T> implements CustomizedList<T> {
 			head = next;
 			next = tmp;
 		}
+	}
+
+	@Override
+	public void add(T element, int offset) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addFirst(T element) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addLast(T element) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public T removeFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T removeLast() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T remove(int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean search(T element) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
