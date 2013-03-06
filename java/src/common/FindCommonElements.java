@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Find common elements between two sorted arrays.
+ * Find common elements between two sorted integer arrays.
  */
 public class FindCommonElements {
 	public static List<Integer> findCommonElements(int[] a, int[] b) {
