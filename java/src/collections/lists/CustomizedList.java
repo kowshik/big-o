@@ -1,7 +1,6 @@
 package collections.lists;
 
-import java.util.List;
 
-public interface CustomizedList<E> extends List<E> {
+public interface CustomizedList<E> {
 	void reverse();
 }
