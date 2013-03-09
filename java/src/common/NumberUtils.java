@@ -1,34 +1,49 @@
 package common;
 
 public class NumberUtils {
-	public static int atoi(String numberString) {
-		if (numberString.length() == 0) {
-			throw new java.lang.NumberFormatException(
-					"The number string is empty.");
+	public static int atoi(String s) {
+		if (s == null) {
+			throw new NullPointerException("You passed a null string.");
+		}
+
+		if (s.length() == 0) {
+			throw new NumberFormatException("The number string is empty.");
 		}
 
 		boolean isNegative = false;
 		int startIndex = 0;
-		if (numberString.charAt(0) == '+' || numberString.charAt(0) == '-') {
+		if (s.charAt(0) == '+' || s.charAt(0) == '-') {
 			startIndex = 1;
-			if (numberString.charAt(0) == '-') {
+			if (s.charAt(0) == '-') {
 				isNegative = true;
 			}
-			if (numberString.length() == 1) {
-				throw new NumberFormatException("The string is malformed.");
+
+			if (s.length() == 1) {
+				throw new NumberFormatException(String.format(
+						"The input string: %s is not a valid integer.", s));
 			}
 		}
 
-		int num = 0;
-		for (int index = startIndex; index < numberString.length(); index++) {
-			if (!Character.isDigit(numberString.charAt(index))) {
-				throw new NumberFormatException("The string is malformed");
+		long num = 0L;
+		for (int index = startIndex; index < s.length(); index++) {
+			char c = s.charAt(index);
+			if (c < '0' || c > '9') {
+				throw new NumberFormatException(String.format(
+						"The input string: %s is not a valid integer.", s));
 			}
 
-			num = num * 10 + (numberString.charAt(index) - '0');
+			num = num * 10 + (c - '0');
+			if (num > Integer.MAX_VALUE
+					&& !(isNegative && num == Integer.MAX_VALUE + 1)) {
+				throw new NumberFormatException(
+						String.format(
+								"The input string: %s is not a valid integer as it overflows the integer range.",
+								s));
+			}
 		}
 
-		return isNegative ? num * -1 : num;
+		int intNum = (int) num;
+		return isNegative ? intNum * -1 : intNum;
 	}
 
 	public static String itoa(int number) {
