@@ -23,21 +23,21 @@ public class PeekIterator<T> implements Iterator<T> {
 
 	@Override
 	public T next() {
-		if (hasNext()) {
-			T toReturn = next;
-			next = null;
-			return toReturn;
+		if (!hasNext()) {
+			throw (new NoSuchElementException("Iterator has no elements left."));
 		}
 
-		throw (new NoSuchElementException("Iterator has no elements left."));
+		T toReturn = next;
+		next = null;
+		return toReturn;
 	}
 
 	public T peek() {
-		if (hasNext()) {
-			return next;
+		if (!hasNext()) {
+			throw (new NoSuchElementException("Iterator has no elements left."));
 		}
 
-		throw (new NoSuchElementException("Iterator has no elements left."));
+		return next;
 	}
 
 	@Override
