@@ -12,7 +12,7 @@ public class SinglyLinkedList<T> implements List<T> {
 		private Node<E> next;
 
 		public Node(E value) {
-			this(null, null);
+			this(value, null);
 		}
 
 		public Node(E value, Node<E> next) {
@@ -167,9 +167,6 @@ public class SinglyLinkedList<T> implements List<T> {
 		return toReturn;
 	}
 
-	// <none>.
-	// 1 -> null.
-	// 1 -> 2 -> 3 -> null.
 	@Override
 	public T remove(int offset) {
 		if (offset < 0) {
@@ -274,4 +271,25 @@ public class SinglyLinkedList<T> implements List<T> {
 		return tail.getValue();
 	}
 
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("[");
+
+		if (head != null) {
+			T value = head.getValue();
+			buffer.append(value == null ? "null" : value.toString());
+			Node<T> iterator = head.getNext();
+
+			while (iterator != null) {
+				buffer.append(",");
+				value = iterator.getValue();
+				buffer.append(value == null ? "null" : value.toString());
+				iterator = iterator.getNext();
+			}
+		}
+
+		buffer.append("]");
+		return buffer.toString();
+	}
 }
