@@ -1,5 +1,8 @@
 package collections.lists;
 
+/**
+ * A simple list interface.
+ */
 public interface List<E> {
 	void add(E element, int offset);
 
@@ -14,6 +17,12 @@ public interface List<E> {
 	E remove(int offset);
 
 	boolean search(E element);
+
+	E get(int offset);
+
+	E getFirst();
+
+	E getLast();
 
 	int size();
 

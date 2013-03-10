@@ -1,5 +1,10 @@
 package collections.lists;
 
+import java.util.NoSuchElementException;
+
+/**
+ * A singly linked list implementation of the list interface.
+ */
 public class SinglyLinkedList<T> implements List<T> {
 
 	private class Node<E> {
@@ -57,49 +62,216 @@ public class SinglyLinkedList<T> implements List<T> {
 
 	@Override
 	public void add(T element, int offset) {
-		// TODO Auto-generated method stub
+		if (offset < 0) {
+			throw new IllegalArgumentException(String.format(
+					"Offset cannot be negative. You passed: %d", offset));
+		}
 
+		if (offset > size) {
+			throw new IllegalArgumentException(
+					String.format(
+							"The offset: %d is greater than the max allowed offset: %d",
+							offset, size));
+		}
+
+		if (offset == 0) {
+			addFirst(element);
+			return;
+		}
+
+		if (offset == size) {
+			addLast(element);
+			return;
+		}
+
+		Node<T> newNode = new Node<T>(element);
+		Node<T> iter = head;
+		for (int count = 0; count < offset - 1; count++) {
+			iter = iter.getNext();
+		}
+
+		Node<T> next = iter.getNext();
+		iter.setNext(newNode);
+
+		newNode.setNext(next);
+
+		size++;
 	}
 
 	@Override
 	public void addFirst(T element) {
-		// TODO Auto-generated method stub
+		Node<T> node = new Node<T>(element);
+		node.setNext(head);
+		head = node;
 
+		if (tail == null) {
+			tail = head;
+		}
+
+		size++;
 	}
 
 	@Override
 	public void addLast(T element) {
-		// TODO Auto-generated method stub
+		Node<T> node = new Node<T>(element);
+		if (tail != null) {
+			tail.setNext(node);
+		}
 
+		tail = node;
+		if (head == null) {
+			head = tail;
+		}
+
+		size++;
 	}
 
 	@Override
 	public T removeFirst() {
-		// TODO Auto-generated method stub
-		return null;
+		if (head == null) {
+			throw new NoSuchElementException();
+		}
+
+		T toReturn = head.getValue();
+		if (head == tail) {
+			head = tail = null;
+		} else {
+			head = head.getNext();
+		}
+
+		size--;
+		return toReturn;
 	}
 
 	@Override
 	public T removeLast() {
-		// TODO Auto-generated method stub
-		return null;
+		if (head == null) {
+			throw new NoSuchElementException();
+		}
+
+		T toReturn = tail.getValue();
+		if (head == tail) {
+			head = tail = null;
+			return toReturn;
+		}
+
+		Node<T> iter = head;
+		while (iter.getNext() != tail) {
+			iter = iter.getNext();
+		}
+
+		iter.setNext(null);
+		tail = iter;
+
+		size--;
+		return toReturn;
 	}
 
+	// <none>.
+	// 1 -> null.
+	// 1 -> 2 -> 3 -> null.
 	@Override
 	public T remove(int offset) {
-		// TODO Auto-generated method stub
-		return null;
+		if (offset < 0) {
+			throw new IllegalArgumentException(String.format(
+					"Offset cannot be negative. You passed: %d", offset));
+		}
+
+		if (head == null) {
+			throw new NoSuchElementException();
+		}
+
+		if (offset >= size) {
+			throw new IllegalArgumentException(
+					String.format(
+							"The offset: %d is greater than the max allowed offset: %d",
+							offset, size));
+		}
+
+		if (offset == 0) {
+			return removeFirst();
+		}
+
+		if (offset == size - 1) {
+			return removeLast();
+		}
+
+		Node<T> prev = null, current = head;
+		int count = 0;
+		while (count < offset) {
+			count++;
+			prev = current;
+			current = current.getNext();
+		}
+
+		T toReturn = current.getValue();
+		prev.setNext(current.getNext());
+
+		size--;
+		return toReturn;
 	}
 
 	@Override
 	public boolean search(T element) {
-		// TODO Auto-generated method stub
+		if (head == null) {
+			throw new NoSuchElementException();
+		}
+
+		Node<T> iter = head;
+		while (iter != null) {
+			if (iter.getValue().equals(element)) {
+				return true;
+			}
+
+			iter = iter.getNext();
+		}
+
 		return false;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
+
+	@Override
+	public T get(int offset) {
+		if (offset < 0) {
+			throw new IllegalArgumentException(String.format(
+					"Offset cannot be negative. You passed: %d", offset));
+		}
+
+		if (offset >= size) {
+			throw new IllegalArgumentException(
+					String.format(
+							"The offset: %d is greater than the max allowed offset: %d",
+							offset, size));
+		}
+
+		Node<T> iter = head;
+		for (int count = 0; count < offset; count++) {
+			iter = iter.getNext();
+		}
+
+		return iter.getValue();
+	}
+
+	@Override
+	public T getFirst() {
+		if (head == null) {
+			throw new NoSuchElementException();
+		}
+
+		return head.getValue();
+	}
+
+	@Override
+	public T getLast() {
+		if (tail == null) {
+			throw new NoSuchElementException();
+		}
+
+		return tail.getValue();
+	}
+
 }
