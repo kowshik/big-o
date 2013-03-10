@@ -50,9 +50,10 @@ public class SearchingTechniques {
 
 	public static <T> boolean dfs(Map<GraphNode<T>, List<GraphNode<T>>> graph,
 			GraphNode<T> node) {
+		HashSet<GraphNode<T>> visited = new HashSet<GraphNode<T>>();
 		for (Map.Entry<GraphNode<T>, List<GraphNode<T>>> entry : graph
 				.entrySet()) {
-			if (doDfs(graph, entry.getKey(), node)) {
+			if (doDfs(graph, entry.getKey(), node, visited)) {
 				return true;
 			}
 		}
@@ -62,20 +63,13 @@ public class SearchingTechniques {
 
 	private static <T> boolean doDfs(
 			Map<GraphNode<T>, List<GraphNode<T>>> graph,
-			GraphNode<T> startNode, GraphNode<T> nodeToBeSearched) {
-		return doDfs(graph, startNode, nodeToBeSearched,
-				new HashSet<GraphNode<T>>());
-	}
-
-	private static <T> boolean doDfs(
-			Map<GraphNode<T>, List<GraphNode<T>>> graph,
 			GraphNode<T> startNode, GraphNode<T> nodeToBeSearched,
 			Set<GraphNode<T>> visited) {
 		if (startNode.equals(nodeToBeSearched)) {
 			return true;
 		}
-		visited.add(startNode);
 
+		visited.add(startNode);
 		for (GraphNode<T> adjacentNode : graph.get(startNode)) {
 			if (!visited.contains(adjacentNode)) {
 				if (doDfs(graph, adjacentNode, nodeToBeSearched, visited)) {
