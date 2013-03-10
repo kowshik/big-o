@@ -5,8 +5,8 @@ import java.util.Comparator;
 import common.Pair;
 
 /**
- * Find the Minimum length unsorted subarray, which when sorted makes the
- * complete array sorted.
+ * Find the minimum length unsorted subarray, which when sorted makes the array
+ * completely sorted.
  */
 public class FindMinLengthUnsortedSubArray {
 
