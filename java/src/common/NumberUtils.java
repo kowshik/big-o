@@ -107,7 +107,7 @@ public class NumberUtils {
 		}
 
 		for (; index < str.length(); index++) {
-			if (!Character.isDigit(str.charAt(index))) {
+			if (str.charAt(index) < '0' || str.charAt(index) > '9') {
 				return false;
 			}
 		}
