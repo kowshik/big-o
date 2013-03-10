@@ -60,4 +60,17 @@ public class Pair<Foo, Bar> {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+
+		buffer.append("(");
+		buffer.append(first == null ? "null" : first.toString());
+		buffer.append(",");
+		buffer.append(second == null ? "null" : second.toString());
+		buffer.append(")");
+
+		return buffer.toString();
+	}
 }
