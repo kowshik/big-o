@@ -57,7 +57,7 @@ public class HoppingIterator<T> implements Iterator<T> {
 			first = false;
 		}
 
-		return nextItem != null ? true : false;
+		return nextItem != null;
 	}
 
 	@Override
