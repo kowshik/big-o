@@ -1,4 +1,4 @@
-package general;
+package bitsandbytes;
 
 /**
  * You have a series of LEDs whose state is represented as a series of bits -- 1

@@ -1,4 +1,4 @@
-package general;
+package strings;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +14,8 @@ import common.Pair;
  * strings. So, given these 3 strings write a function that detects whether str3
  * is a valid shuffle of str1 and str2.
  * 
- * http://www.ardendertat.com/2011/10/10/programming-interview-questions-6-combine-two-strings/
+ * http://www.ardendertat.com/2011/10/10/programming-interview-questions-6-
+ * combine-two-strings/
  */
 public class CheckInterleavedStrings {
 

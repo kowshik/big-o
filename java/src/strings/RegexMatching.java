@@ -1,4 +1,4 @@
-package general;
+package strings;
 
 /**
  * Write a function to match a given string to a regular expression.
@@ -10,13 +10,9 @@ package general;
  * 
  * Some examples:
  * 
- * isMatch("aa","a") → false
- * isMatch("aa","aa") → true
- * isMatch("aaa","aa") → false
- * isMatch("aa", "a*") → true
- * isMatch("aa", ".*") → true
- * isMatch("ab", ".*") → true
- * isMatch("aab", "c*a*b") → true
+ * isMatch("aa","a") → false isMatch("aa","aa") → true isMatch("aaa","aa")
+ * → false isMatch("aa", "a*") → true isMatch("aa", ".*") → true
+ * isMatch("ab", ".*") → true isMatch("aab", "c*a*b") → true
  */
 public class RegexMatching {
 

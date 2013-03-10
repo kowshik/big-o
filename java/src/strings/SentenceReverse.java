@@ -1,4 +1,4 @@
-package general;
+package strings;
 
 /**
  * Reverse the sentence, and reverse each word in it.

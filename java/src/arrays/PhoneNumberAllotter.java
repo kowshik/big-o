@@ -1,4 +1,4 @@
-package general;
+package arrays;
 
 import common.ArrayUtils;
 

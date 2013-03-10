@@ -1,4 +1,4 @@
-package general;
+package dp;
 
 /*
  * We are given a nxn square matrix with 0s and 1s.

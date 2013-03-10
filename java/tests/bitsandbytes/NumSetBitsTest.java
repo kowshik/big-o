@@ -1,4 +1,4 @@
-package general;
+package bitsandbytes;
 
 import static org.junit.Assert.assertEquals;
 

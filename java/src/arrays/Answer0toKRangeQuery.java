@@ -1,4 +1,4 @@
-package general;
+package arrays;
 
 /**
  * Write a program that given n integers in the range 0 to k, pre-processes its
