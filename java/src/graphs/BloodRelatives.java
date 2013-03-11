@@ -1,5 +1,6 @@
 package graphs;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,7 +35,7 @@ class Person {
 	}
 
 	public List<Person> getParents() {
-		return parents;
+		return new ArrayList<Person>(parents);
 	}
 }
 
