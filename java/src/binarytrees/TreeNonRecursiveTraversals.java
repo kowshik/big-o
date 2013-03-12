@@ -84,6 +84,7 @@ public class TreeNonRecursiveTraversals {
 		}
 	}
 
+	// level (starting from 0) is the level that should be traversed.
 	public static void traverseLevelOrder(TreeNode<?> rootNode, int level) {
 		if (level < 0) {
 			throw new IllegalArgumentException(String.format(
@@ -128,6 +129,31 @@ public class TreeNonRecursiveTraversals {
 		if (levelCount != level) {
 			throw new IllegalArgumentException(String.format(
 					"You passed an invalid level: %d.", level));
+		}
+	}
+
+	// traverse all levels in the binary tree.
+	public static void traverseLevelOrder(TreeNode<?> rootNode) {
+		if (rootNode == null) {
+			return;
+		}
+
+		Queue<TreeNode<?>> q = new LinkedList<TreeNode<?>>();
+		q.add(rootNode);
+		q.add(null);
+
+		while (!q.isEmpty()) {
+			TreeNode<?> node = q.remove();
+
+			System.out.println(node);
+
+			if (node.hasLeft()) {
+				q.add(node.getLeft());
+			}
+
+			if (node.hasRight()) {
+				q.add(node.getRight());
+			}
 		}
 	}
 }
