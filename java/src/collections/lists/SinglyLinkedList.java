@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  */
 public class SinglyLinkedList<T> implements List<T> {
 
-	private class Node<E> {
+	private static class Node<E> {
 		private E value;
 		private Node<E> next;
 
@@ -291,5 +291,27 @@ public class SinglyLinkedList<T> implements List<T> {
 
 		buffer.append("]");
 		return buffer.toString();
+	}
+
+	@SuppressWarnings("unchecked")
+	public void pairWiseReverse() {
+		head = pairWiseReverse(head);
+	}
+
+	private Node<T> pairWiseReverse(Node<T> head) {
+		if (head == null) {
+			return null;
+		}
+
+		if (head.getNext() == null) {
+			return head;
+		}
+
+		Node<T> next = head.getNext();
+		Node<T> pwReversed = pairWiseReverse(next.getNext());
+		next.setNext(head);
+		head.setNext(pwReversed);
+
+		return next;
 	}
 }
