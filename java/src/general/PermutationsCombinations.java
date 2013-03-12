@@ -3,7 +3,7 @@ package general;
 import common.ArrayUtils;
 
 /**
- * Print all permutations of a given array.
+ * Print all permutations/combinations of a given array.
  */
 public class PermutationsCombinations {
 	public static void printPermutations(char[] array) {
