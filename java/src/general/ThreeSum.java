@@ -18,7 +18,7 @@ public class ThreeSum {
 		return false;
 	}
 
-	public static boolean twoSum(int[] array, int sum, int excludeIndex) {
+	private static boolean twoSum(int[] array, int sum, int excludeIndex) {
 		Set<Integer> set = new HashSet<Integer>();
 
 		for (int index = 0; index < array.length; index++) {
