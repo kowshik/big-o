@@ -4,6 +4,10 @@ import java.util.Comparator;
 
 public class ArrayUtils {
 	public static Integer[] autoBox(int[] array) {
+		if (array == null) {
+			return null;
+		}
+
 		Integer[] converted = new Integer[array.length];
 		for (int index = 0; index < array.length; index++) {
 			converted[index] = array[index];
@@ -13,6 +17,10 @@ public class ArrayUtils {
 	}
 
 	public static Character[] autoBox(char[] array) {
+		if (array == null) {
+			return null;
+		}
+
 		Character[] converted = new Character[array.length];
 		for (int index = 0; index < array.length; index++) {
 			converted[index] = array[index];
@@ -22,6 +30,10 @@ public class ArrayUtils {
 	}
 
 	public static <T> String arrayToString(T[] array) {
+		if (array == null) {
+			return null;
+		}
+
 		if (array.length == 0) {
 			return "[]";
 		}
@@ -42,22 +54,13 @@ public class ArrayUtils {
 	}
 
 	public static <T> String arrayToString(int[] array) {
-		if (array.length == 0) {
-			return "[]";
-		}
+		return arrayToString(autoBox(array));
+	}
 
-		StringBuffer buffer = new StringBuffer();
-		int index = 0;
-		buffer.append("[");
-		buffer.append(Integer.toString(array[index]));
-		index++;
-		for (; index < array.length; index++) {
-			buffer.append(", ");
-			buffer.append(Integer.toString(array[index]));
-		}
-		buffer.append("]");
-
-		return buffer.toString();
+	public static void swap(char[] array, int fooIndex, int barIndex) {
+		char temp = array[fooIndex];
+		array[fooIndex] = array[barIndex];
+		array[barIndex] = temp;
 	}
 
 	public static void swap(int[] array, int fooIndex, int barIndex) {
