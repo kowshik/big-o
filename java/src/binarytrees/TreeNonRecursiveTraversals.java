@@ -1,5 +1,7 @@
 package binarytrees;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class TreeNonRecursiveTraversals {
@@ -79,6 +81,53 @@ public class TreeNonRecursiveTraversals {
 					childStack.push(current.getLeft());
 				}
 			}
+		}
+	}
+
+	public static void traverseLevelOrder(TreeNode<?> rootNode, int level) {
+		if (level < 0) {
+			throw new IllegalArgumentException(String.format(
+					"level should be >= 0. You passed: %d.", level));
+		}
+
+		if (rootNode == null) {
+			return;
+		}
+
+		Queue<TreeNode<?>> q = new LinkedList<TreeNode<?>>();
+		q.add(rootNode);
+		q.add(null);
+
+		int levelCount = 0;
+		while (!q.isEmpty()) {
+			TreeNode<?> node = q.remove();
+			if (node == null) {
+				if (levelCount == level) {
+					break;
+				}
+
+				if (!q.isEmpty()) {
+					q.add(null);
+					levelCount++;
+				}
+			} else {
+				if (levelCount == level) {
+					System.out.println(node);
+				}
+
+				if (node.hasLeft()) {
+					q.add(node.getLeft());
+				}
+
+				if (node.hasRight()) {
+					q.add(node.getRight());
+				}
+			}
+		}
+
+		if (levelCount != level) {
+			throw new IllegalArgumentException(String.format(
+					"You passed an invalid level: %d.", level));
 		}
 	}
 }
