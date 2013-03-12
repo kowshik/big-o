@@ -209,6 +209,11 @@ public class SinglyLinkedList<T> implements List<T> {
 	}
 
 	@Override
+	public void remove(T element) {
+
+	}
+
+	@Override
 	public boolean search(T element) {
 		if (head == null) {
 			throw new NoSuchElementException();
@@ -296,6 +301,19 @@ public class SinglyLinkedList<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	public void pairWiseReverse() {
 		head = pairWiseReverse(head);
+		if (head == null) {
+			return;
+		}
+
+		Node<T> previous = null;
+		Node<T> iterator = head;
+
+		while (iterator != null) {
+			previous = iterator;
+			iterator = iterator.getNext();
+		}
+
+		tail = previous;
 	}
 
 	private Node<T> pairWiseReverse(Node<T> head) {
