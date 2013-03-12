@@ -241,6 +241,7 @@ public class SinglyLinkedList<T> implements List<T> {
 				Node<T> next = iter.getNext();
 				iter.setNext(null);
 				iter = next;
+				size--;
 			}
 
 			if (previous == null) {
@@ -258,9 +259,6 @@ public class SinglyLinkedList<T> implements List<T> {
 				iter = iter.getNext();
 			}
 		}
-
-		System.out.println("head: " + head);
-		System.out.println("tail: " + tail);
 	}
 
 	@Override
