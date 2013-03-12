@@ -1,5 +1,7 @@
 package collections.lists;
 
+import java.util.Comparator;
+
 /**
  * A simple list interface.
  */
@@ -15,6 +17,9 @@ public interface List<E> {
 	E removeLast();
 
 	E remove(int offset);
+
+	// Remove all occurences of the element.
+	void remove(E element, Comparator<E> comparator);
 
 	boolean search(E element);
 

@@ -1,5 +1,6 @@
 package collections.lists;
 
+import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 /**
@@ -34,6 +35,15 @@ public class SinglyLinkedList<T> implements List<T> {
 
 		public void setValue(E value) {
 			this.value = value;
+		}
+
+		@Override
+		public String toString() {
+			if (value != null) {
+				return value.toString();
+			}
+
+			return "null";
 		}
 
 	}
@@ -209,8 +219,48 @@ public class SinglyLinkedList<T> implements List<T> {
 	}
 
 	@Override
-	public void remove(T element) {
+	public void remove(T element, Comparator<T> comparator) {
+		if (head == null) {
+			throw new NoSuchElementException("List is empty.");
+		}
 
+		if (comparator == null) {
+			throw new NullPointerException("You passed a null comparator");
+		}
+
+		Node<T> previous = null;
+		Node<T> iter = head;
+
+		while (iter != null) {
+			while (iter != null
+					&& comparator.compare(iter.getValue(), element) == 0) {
+				if (iter == tail) {
+					tail = null;
+				}
+
+				Node<T> next = iter.getNext();
+				iter.setNext(null);
+				iter = next;
+			}
+
+			if (previous == null) {
+				head = iter;
+			} else {
+				previous.setNext(iter);
+			}
+
+			if (tail == null) {
+				tail = previous;
+			}
+
+			previous = iter;
+			if (iter != null) {
+				iter = iter.getNext();
+			}
+		}
+
+		System.out.println("head: " + head);
+		System.out.println("tail: " + tail);
 	}
 
 	@Override
