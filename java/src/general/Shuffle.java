@@ -4,6 +4,9 @@ import java.util.Random;
 
 import common.ArrayUtils;
 
+/**
+ * Shuffle the contents of an array.
+ */
 public class Shuffle {
 	public static void shuffle(int[] array) {
 		if (array == null) {
