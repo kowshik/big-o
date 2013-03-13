@@ -3,6 +3,8 @@ package collections.lists;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
+import common.Pair;
+
 /**
  * A singly linked list implementation of the list interface.
  */
@@ -11,6 +13,9 @@ public class SinglyLinkedList<T> implements List<T> {
 	private static class Node<E> {
 		private E value;
 		private Node<E> next;
+
+		public Node() {
+		}
 
 		public Node(E value) {
 			this(value, null);
@@ -349,19 +354,7 @@ public class SinglyLinkedList<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	public void pairWiseReverse() {
 		head = pairWiseReverse(head);
-		if (head == null) {
-			return;
-		}
-
-		Node<T> previous = null;
-		Node<T> iterator = head;
-
-		while (iterator != null) {
-			previous = iterator;
-			iterator = iterator.getNext();
-		}
-
-		tail = previous;
+		resetTail();
 	}
 
 	private Node<T> pairWiseReverse(Node<T> head) {
@@ -379,5 +372,119 @@ public class SinglyLinkedList<T> implements List<T> {
 		head.setNext(pwReversed);
 
 		return next;
+	}
+
+	private void resetTail() {
+		if (head == null) {
+			return;
+		}
+
+		Node<T> previous = null;
+		Node<T> iterator = head;
+
+		while (iterator != null) {
+			previous = iterator;
+			iterator = iterator.getNext();
+		}
+
+		tail = previous;
+	}
+
+	public void sort(Comparator<T> comparator) {
+		head = sort(head, comparator);
+		resetTail();
+	}
+
+	private Node<T> sort(Node<T> head, Comparator<T> comparator) {
+		if (head == null) {
+			return null;
+		}
+
+		if (head.getNext() == null) {
+			return head;
+		}
+
+		Pair<Node<T>, Node<T>> split = split(head);
+		return merge(sort(split.getFirst(), comparator),
+				sort(split.getSecond(), comparator), comparator);
+	}
+
+	private Node<T> merge(Node<T> head1, Node<T> head2, Comparator<T> comparator) {
+		if (head1 == null) {
+			return head2;
+		}
+
+		if (head2 == null) {
+			return head1;
+		}
+
+		Node<T> sorted = new Node<T>();
+		Node<T> dummy = sorted;
+
+		while (head1 != null && head2 != null) {
+			if (comparator.compare(head1.getValue(), head2.getValue()) <= 0) {
+				sorted.setNext(head1);
+				head1 = head1.getNext();
+			} else {
+				sorted.setNext(head2);
+				head2 = head2.getNext();
+			}
+
+			sorted = sorted.getNext();
+		}
+
+		if (head1 != null) {
+			sorted.setNext(head1);
+		} else {
+			sorted.setNext(head2);
+		}
+
+		return dummy.getNext();
+	}
+
+	private Pair<Node<T>, Node<T>> split(Node<T> head) {
+		Pair<Node<T>, Node<T>> heads = new Pair<Node<T>, Node<T>>();
+		if (head == null) {
+			return heads;
+		}
+
+		heads.setFirst(head);
+
+		Node<T> fast = head;
+		Node<T> previous = head;
+		while (fast != null) {
+			previous = head;
+			head = head.getNext();
+			fast = fast.getNext();
+			if (fast != null) {
+				fast = fast.getNext();
+			}
+		}
+
+		previous.setNext(null);
+		heads.setSecond(head);
+		return heads;
+	}
+
+	public static void main(String[] args) {
+		SinglyLinkedList<Integer> list = new SinglyLinkedList<Integer>();
+		list.addLast(5);
+		list.addLast(2);
+		list.addLast(3);
+		list.addLast(1);
+		list.addLast(4);
+		list.addLast(10);
+		list.addLast(0);
+
+		Comparator<Integer> comparator = new Comparator<Integer>() {
+			@Override
+			public int compare(Integer a, Integer b) {
+				return a - b;
+			}
+		};
+
+		System.out.println(list);
+		list.sort(comparator);
+		System.out.println(list);
 	}
 }
