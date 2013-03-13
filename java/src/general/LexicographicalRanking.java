@@ -4,7 +4,7 @@ package general;
  * Given a string s, find its lexicographical ranking.
  */
 public class LexicographicalRanking {
-	public static int findLexicographicalRank(String s, int length) {
+	public static int findLexicographicalRank(String s) {
 		if (s == null) {
 			throw new NullPointerException("Can't find rank for null string.");
 		}
@@ -14,15 +14,8 @@ public class LexicographicalRanking {
 					"Can't find rank for empty string.");
 		}
 
-		if (s.length() > length) {
-			throw new IllegalArgumentException(
-					String.format(
-							"String length: %d cannot be greater than allowed length: %d",
-							s.length(), length));
-		}
-
 		int rank = 0;
-		int exponent = length - 1;
+		int exponent = s.length() - 1;
 		for (int index = 0; index < s.length(); index++) {
 			rank += new Double(Math.pow(26, exponent)).intValue()
 					* (getRank(s.charAt(index)));
@@ -39,5 +32,9 @@ public class LexicographicalRanking {
 		}
 
 		return c - 'a' + 1;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(findLexicographicalRank("dzz", 4));
 	}
 }
