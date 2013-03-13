@@ -390,6 +390,9 @@ public class SinglyLinkedList<T> implements List<T> {
 		tail = previous;
 	}
 
+	/**
+	 * Merge sort on a singly linked list.
+	 */
 	public void sort(Comparator<T> comparator) {
 		head = sort(head, comparator);
 		resetTail();
