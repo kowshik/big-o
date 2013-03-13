@@ -1,10 +1,9 @@
 package general;
 
 /**
- * Find n C r.
- * n C r = n! / r! x (n - r)!
+ * Find n C r. n C r = n! / r! x (n - r)!
  */
-public class BinomialCoefficient {
+public class FindNumCombinations {
 	// n C r = n! / r! x (n - r)!
 	public static long findNumCombinations(int n, int r) {
 		if (n <= 0 || r < 0) {
