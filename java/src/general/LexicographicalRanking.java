@@ -33,8 +33,4 @@ public class LexicographicalRanking {
 
 		return c - 'a' + 1;
 	}
-
-	public static void main(String[] args) {
-		System.out.println(findLexicographicalRank("dzz", 4));
-	}
 }
