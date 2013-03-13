@@ -15,7 +15,7 @@ public class Shuffle {
 
 		Random rand = new Random();
 		for (int index = array.length - 1; index >= 1; index--) {
-			ArrayUtils.swap(array, index, rand.nextInt(index));
+			ArrayUtils.swap(array, index, rand.nextInt(index + 1));
 		}
 	}
 }
