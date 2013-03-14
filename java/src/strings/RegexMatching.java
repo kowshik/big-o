@@ -75,7 +75,7 @@ public class RegexMatching {
 		}
 
 		if (regexChar == '*') {
-			throw new RuntimeException("Invalid regex input.");
+			throw new IllegalArgumentException("Invalid regex input.");
 		}
 
 		// We need a concrete match for a single character now before we
