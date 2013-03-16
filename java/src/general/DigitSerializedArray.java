@@ -15,7 +15,9 @@ package general;
  * 
  * Other examples:
  * 
- * index = 100 => result = 5 index = 30 => result = 2 index = 31 => result = 0
+ * index = 100 => result = 5
+ * index = 30 => result = 2
+ * index = 31 => result = 0
  * index = 1000 => result = 3
  */
 public class DigitSerializedArray {
