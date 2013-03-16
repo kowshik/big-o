@@ -20,7 +20,7 @@ package general;
 public class BinaryGap {
 	public int binaryGap(int number) {
 		while (number != 0 && (number & 1) == 0) {
-			number >>= 1;
+			number >>>= 1;
 		}
 
 		if (number == 0) {
@@ -39,7 +39,7 @@ public class BinaryGap {
 				count = 0;
 			}
 
-			number >>= 1;
+			number >>>= 1;
 		}
 
 		return count;
