@@ -1,5 +1,9 @@
 package general;
 
+/**
+ * Given a positive integer as a string, return the string representation of the
+ * smallest palindromic number bigger than the given number.
+ */
 public class NextPalindromeNumber {
 	public static String nextPalindromeNumber(String num) {
 		char[] number = num.toCharArray();
