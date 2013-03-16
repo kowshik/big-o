@@ -1,8 +1,9 @@
 package general;
 
 /**
- * You are given a maze (2D boolean matrix) where 0 = free way, 1= obstacle.
- * Write a function to find out many ways exist to reach [N][M] from [0][0].
+ * You are given a maze (2D boolean matrix) where true = free way, false =
+ * obstacle. Write a function to find out how many ways exist to reach [N][M]
+ * from [0][0].
  */
 public class Maze {
 	public static long findNumWays(boolean[][] maze) {
