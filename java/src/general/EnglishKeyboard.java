@@ -2,8 +2,8 @@ package general;
 
 /**
  * You are given  an imaginary onscreen keyboard containing the English
- * alphabets, 'a' through 'z' (lowercase), and an imaginary with the letters
- * laid out in a specified number of columns.
+ * alphabets, 'a' through 'z' (lowercase), with the letters laid out in a
+ * specified number of columns.
  * 
  * For example, if number of cols = 6, then the onscreen keyboard will be:
  * 
