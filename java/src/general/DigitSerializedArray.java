@@ -15,9 +15,7 @@ package general;
  * 
  * Other examples:
  * 
- * index = 100 => result = 5
- * index = 30 => result = 2
- * index = 31 => result = 0
+ * index = 100 => result = 5 index = 30 => result = 2 index = 31 => result = 0
  * index = 1000 => result = 3
  */
 public class DigitSerializedArray {
@@ -29,22 +27,22 @@ public class DigitSerializedArray {
 
 		int slabStartValue = 0;
 		int slabLevelCap = 10;
-		int numCharsAtThisLevel = 1;
+		int numDigitsAtThisLevel = 1;
 		int slabOfNumbers = (slabLevelCap - slabStartValue)
-				* numCharsAtThisLevel;
+				* numDigitsAtThisLevel;
 
 		while (index - slabOfNumbers >= 0) {
 			index -= slabOfNumbers;
 			slabStartValue = slabLevelCap;
 			slabLevelCap *= 10;
-			numCharsAtThisLevel++;
+			numDigitsAtThisLevel++;
 			slabOfNumbers = (slabLevelCap - slabStartValue)
-					* numCharsAtThisLevel;
+					* numDigitsAtThisLevel;
 		}
 
-		int corneredNumber = index / numCharsAtThisLevel + slabStartValue;
-		int digitFindingIndex = index % numCharsAtThisLevel + 1;
-		while (digitFindingIndex < numCharsAtThisLevel) {
+		int corneredNumber = index / numDigitsAtThisLevel + slabStartValue;
+		int digitFindingIndex = index % numDigitsAtThisLevel + 1;
+		while (digitFindingIndex < numDigitsAtThisLevel) {
 			digitFindingIndex++;
 			corneredNumber /= 10;
 		}
