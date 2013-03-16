@@ -7,6 +7,10 @@ import common.ArrayUtils;
  */
 public class PermutationsCombinations {
 	public static void printPermutations(char[] array) {
+		if (array == null) {
+			throw new NullPointerException("Array passed cannot be null.");
+		}
+
 		printPermutations(array, 0);
 	}
 
@@ -23,7 +27,7 @@ public class PermutationsCombinations {
 		}
 	}
 
-	private static void printCombinations(char[] array, int count) {
+	public static void printCombinations(char[] array, int count) {
 		if (array == null) {
 			throw new NullPointerException("Array passed cannot be null.");
 		}
