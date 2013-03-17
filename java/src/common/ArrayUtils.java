@@ -29,34 +29,6 @@ public class ArrayUtils {
 		return converted;
 	}
 
-	public static <T> String arrayToString(T[] array) {
-		if (array == null) {
-			return null;
-		}
-
-		if (array.length == 0) {
-			return "[]";
-		}
-
-		StringBuffer buffer = new StringBuffer();
-		int index = 0;
-		buffer.append("[");
-		buffer.append(array[index] == null ? "null" : array[index].toString());
-		index++;
-		for (; index < array.length; index++) {
-			buffer.append(", ");
-			buffer.append(array[index] == null ? "null" : array[index]
-					.toString());
-		}
-		buffer.append("]");
-
-		return buffer.toString();
-	}
-
-	public static <T> String arrayToString(int[] array) {
-		return arrayToString(autoBox(array));
-	}
-
 	public static void swap(char[] array, int fooIndex, int barIndex) {
 		char temp = array[fooIndex];
 		array[fooIndex] = array[barIndex];

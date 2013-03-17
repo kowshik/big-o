@@ -1,9 +1,8 @@
 package general;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import common.ArrayUtils;
 
 /**
  * Find a subset of elements that are selected from a given set whose sum adds
@@ -50,7 +49,7 @@ public class SubsetSum {
 
 	public static void main(String[] args) {
 		int values[] = { 10, 7, 5, 18, 12, 20, 15 };
-		System.out.println(ArrayUtils.arrayToString(values));
+		System.out.println(Arrays.toString(values));
 		System.out.println(findSubsetSum(values, 47));
 	}
 }

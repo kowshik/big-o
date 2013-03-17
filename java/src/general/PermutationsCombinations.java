@@ -1,11 +1,14 @@
 package general;
 
+import java.util.Arrays;
+
 import common.ArrayUtils;
 
 /**
  * Print all permutations/combinations of a given array.
  */
 public class PermutationsCombinations {
+
 	public static void printPermutations(char[] array) {
 		if (array == null) {
 			throw new NullPointerException("Array passed cannot be null.");
@@ -16,8 +19,7 @@ public class PermutationsCombinations {
 
 	private static void printPermutations(char[] array, int index) {
 		if (index == array.length) {
-			System.out.println(ArrayUtils.arrayToString(ArrayUtils
-					.autoBox(array)));
+			System.out.println(Arrays.toString(array));
 		}
 
 		for (int i = index; i < array.length; i++) {
@@ -48,8 +50,7 @@ public class PermutationsCombinations {
 	private static void printCombinations(char[] array, int arrayIndex,
 			int count, char[] combination, int combinationIndex) {
 		if (count == 0) {
-			System.out.println(ArrayUtils.arrayToString(ArrayUtils
-					.autoBox(combination)));
+			System.out.println(Arrays.toString(combination));
 			return;
 		}
 
