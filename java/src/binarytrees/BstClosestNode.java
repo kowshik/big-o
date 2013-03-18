@@ -28,56 +28,73 @@ public class BstClosestNode {
 		return inorderSuccessor;
 	}
 
-	public static TreeNode<Integer> getInorderPredecessor(
-			TreeNode<Integer> bstRootNode, TreeNode<Integer> node) {
-		if (bstRootNode == null || node == null) {
-			return null;
-		}
-
-		if (bstRootNode.equals(node)) {
-			TreeNode<Integer> predecessor = bstRootNode.getLeft();
-			if (predecessor != null) {
-				while (predecessor.hasRight()) {
-					predecessor = predecessor.getRight();
-				}
-			}
-
-			return predecessor;
-		}
-
-		if (node.getValue() <= bstRootNode.getValue()) {
-			return getInorderPredecessor(bstRootNode.getLeft(), node);
-
-		}
-
-		TreeNode<Integer> inorderPredecessor = getInorderPredecessor(
-				bstRootNode.getRight(), node);
-		return inorderPredecessor != null ? inorderPredecessor : bstRootNode;
-	}
-
 	public static TreeNode<Integer> getInorderSuccessor(
 			TreeNode<Integer> bstRootNode, TreeNode<Integer> node) {
 		if (bstRootNode == null || node == null) {
 			return null;
 		}
 
-		if (bstRootNode.equals(node)) {
-			TreeNode<Integer> successor = bstRootNode.getRight();
-			if (successor != null) {
-				while (successor.hasLeft()) {
-					successor = successor.getLeft();
-				}
+		TreeNode<Integer> successorNode = getMinValueNode(node.getRight());
+		if (successorNode != null) {
+			return successorNode;
+		}
+
+		while (bstRootNode != null) {
+			if (node.getValue() < bstRootNode.getValue()) {
+				successorNode = bstRootNode;
+				bstRootNode = bstRootNode.getLeft();
+			} else {
+				bstRootNode = bstRootNode.getRight();
 			}
-
-			return successor;
 		}
 
-		if (node.getValue() <= bstRootNode.getValue()) {
-			TreeNode<Integer> inorderSuccessor = getInorderSuccessor(
-					bstRootNode.getLeft(), node);
-			return inorderSuccessor != null ? inorderSuccessor : bstRootNode;
+		return successorNode;
+	}
+
+	public static TreeNode<Integer> getInorderPredecessor(
+			TreeNode<Integer> bstRootNode, TreeNode<Integer> node) {
+		if (bstRootNode == null || node == null) {
+			return null;
 		}
 
-		return getInorderSuccessor(bstRootNode.getRight(), node);
+		TreeNode<Integer> predecessorNode = getMaxValueNode(node.getLeft());
+		if (predecessorNode != null) {
+			return predecessorNode;
+		}
+
+		while (bstRootNode != null) {
+			if (node.getValue() > bstRootNode.getValue()) {
+				predecessorNode = bstRootNode;
+				bstRootNode = bstRootNode.getRight();
+			} else {
+				bstRootNode = bstRootNode.getLeft();
+			}
+		}
+
+		return predecessorNode;
+	}
+
+	private static TreeNode<Integer> getMinValueNode(TreeNode<Integer> node) {
+		if (node == null) {
+			return null;
+		}
+
+		while (node.hasLeft()) {
+			node = node.getLeft();
+		}
+
+		return node;
+	}
+
+	private static TreeNode<Integer> getMaxValueNode(TreeNode<Integer> node) {
+		if (node == null) {
+			return null;
+		}
+
+		while (node.hasRight()) {
+			node = node.getRight();
+		}
+
+		return node;
 	}
 }
