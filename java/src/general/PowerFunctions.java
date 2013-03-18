@@ -66,7 +66,7 @@ public class PowerFunctions {
 		return false;
 	}
 
-	public static double squareRoot(double number) {
+	public static int squareRoot(int number) {
 		if (number < 0) {
 			throw new IllegalArgumentException(String.format(
 					"Number cannot be negative. You passed: %d", number));
@@ -76,10 +76,10 @@ public class PowerFunctions {
 			return number;
 		}
 
-		double start = 2, end = number, middle, squared;
-		double sqrt = 0.0f;
+		int start = 2, end = number, middle, squared;
+		int sqrt = 0;
 		while (start <= end) {
-			middle = (start + end) / 2;
+			middle = (start + (end - start)) / 2;
 			System.out.println(String.format(
 					"start: %f, end: %f, middle: %f\n", start, end, middle));
 			squared = middle * middle;
