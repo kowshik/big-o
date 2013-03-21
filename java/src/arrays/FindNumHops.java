@@ -9,7 +9,8 @@ import java.util.Set;
  * (i.e. >= 0) From any index in the array, a hop can be either of the
  * following:
  * 
- * [1] Jump array[index] positions [2] Jump 1 position
+ * [1] Jump array[index] positions
+ * [2] Jump 1 position
  * 
  * The target of this question is to find the number of hops required to reach
  * the last element in the array from the first element.
