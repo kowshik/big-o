@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 public class PeekIterator<T> implements Iterator<T> {
 
 	private final Iterator<T> iterator;
-	private T next;
+	private T nextitem;
 
 	public PeekIterator(Iterator<T> iterator) {
 		this.iterator = iterator;
@@ -14,11 +14,15 @@ public class PeekIterator<T> implements Iterator<T> {
 
 	@Override
 	public boolean hasNext() {
-		if (next == null && iterator.hasNext()) {
-			next = iterator.next();
+		if (nextitem != null) {
+			return true;
 		}
 
-		return next != null;
+		if (iterator.hasNext()) {
+			nextitem = iterator.next();
+		}
+
+		return nextitem != null;
 	}
 
 	@Override
@@ -27,8 +31,8 @@ public class PeekIterator<T> implements Iterator<T> {
 			throw (new NoSuchElementException("Iterator has no elements left."));
 		}
 
-		T toReturn = next;
-		next = null;
+		T toReturn = nextitem;
+		nextitem = null;
 		return toReturn;
 	}
 
@@ -37,7 +41,7 @@ public class PeekIterator<T> implements Iterator<T> {
 			throw (new NoSuchElementException("Iterator has no elements left."));
 		}
 
-		return next;
+		return nextitem;
 	}
 
 	@Override
