@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import common.Pair;
 
-public class SimpleSchedulingExecutor implements ScheduledExecutor {
+public class SimpleSchedulingExecutor implements SchedulingExecutor {
 	private static final long IDLING_TIME = 10000L;
 
 	private final PriorityQueue<Pair<Runnable, Long>> executionHeap;
