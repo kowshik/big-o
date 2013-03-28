@@ -45,6 +45,7 @@ public class Semaphore {
 		return waitCount;
 	}
 
+	// Simple tests for the above class.
 	public static void main(String[] args) {
 		final Semaphore semaphore = new Semaphore(2);
 		new Thread(new Runnable() {
