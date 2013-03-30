@@ -3,7 +3,6 @@ package concurrency;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Solves the first reader writer problem:
@@ -20,6 +19,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * 4. Only threads that previously held a read or write lock are allowed to
  * release them.
  * 
+ * 5. The implementation is not re-entrant.
+ * 
  * Note: Writers can potentially starve if there are many more readers when
  * compared to writers, but we don't address this in the solution.
  */
@@ -28,7 +29,7 @@ public class FirstReaderWriterLock {
 	private final Semaphore writeMutex = new Semaphore(1);
 	private final Set<Long> readerIds = Collections
 			.synchronizedSet(new HashSet<Long>());
-	private AtomicLong writerId;
+	private volatile Long writerId;
 
 	public void readLock() {
 		try {
@@ -52,7 +53,6 @@ public class FirstReaderWriterLock {
 								"The current thread with id: %d never acquired a read lock before.",
 								threadId));
 			}
-
 			readerIds.remove(threadId);
 			if (readerIds.size() == 0) {
 				writeMutex.release();
@@ -65,19 +65,18 @@ public class FirstReaderWriterLock {
 
 	public void writeLock() {
 		writeMutex.acquire();
-		writerId.set(Thread.currentThread().getId());
+		writerId = Thread.currentThread().getId();
 	}
 
 	public void writeUnlock() {
-		long threadId = Thread.currentThread().getId();
-		synchronized (writerId) {
-			if (writerId.get() != threadId) {
-				throw new IllegalStateException(
-						String.format(
-								"The current thread with id: %d never acquired a write lock before.",
-								threadId));
-			}
+		Long threadId = Thread.currentThread().getId();
+		if (writerId == null || !writerId.equals(threadId)) {
+			throw new IllegalStateException(
+					String.format(
+							"The current thread with id: %d never acquired a write lock before.",
+							threadId));
 		}
+
 		writeMutex.release();
 	}
 }
