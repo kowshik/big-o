@@ -5,6 +5,10 @@ import java.util.NoSuchElementException;
 
 import common.Predicate;
 
+/**
+ * Implements an iterator that filters elements from the underlying iterator
+ * based on the given predicate.
+ */
 public class FilteringIterator<T> implements Iterator<T> {
 
 	private final Iterator<T> iterator;

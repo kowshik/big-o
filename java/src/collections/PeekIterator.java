@@ -3,6 +3,11 @@ package collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * Implements the peek() function on top of a given iterator. This
+ * can be used to peek at values in the underlying iterator before
+ * iterating over them.
+ */
 public class PeekIterator<T> implements Iterator<T> {
 
 	private final Iterator<T> iterator;

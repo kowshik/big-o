@@ -5,17 +5,17 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Implement a rotating iterator. The iterator should accept an array list of
- * iterators, and iterate over them column-wise.
+ * Implements a rotating iterator. The iterator accepts an array list of
+ * iterators, and iterates over them column-wise.
  * 
  * i.e If the following iterators are passed:
  * 
- * iterator_1 => [1] iterator_2 => [2, 3] iterator_3 => [4]
+ * iterator_1 => [1] iterator_2 => [2, 3] iterator_3 => [4, 5]
  * 
- * Then the rotating iterator will return the following elements in sequential
+ * Then the rotating iterator returns the following elements in sequential
  * order:
  * 
- * 1, 2, 4, 3.
+ * 1, 2, 4, 3, 5.
  */
 public class RotatingIterator<T> implements Iterator<T> {
 
