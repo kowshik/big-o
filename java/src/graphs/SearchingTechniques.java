@@ -8,6 +8,14 @@ import java.util.Queue;
 import java.util.Set;
 
 public class SearchingTechniques {
+	/**
+	 * Performs breadth first search for a given node in a graph.
+	 * 
+	 * @param graph
+	 *            graph to be searched
+	 * @param node
+	 *            node to be searched in the graph
+	 */
 	public static <T> boolean bfs(Map<GraphNode<T>, List<GraphNode<T>>> graph,
 			GraphNode<T> node) {
 		for (Map.Entry<GraphNode<T>, List<GraphNode<T>>> entry : graph
@@ -48,6 +56,14 @@ public class SearchingTechniques {
 		return false;
 	}
 
+	/**
+	 * Performs depth first search for a given node in a graph.
+	 * 
+	 * @param graph
+	 *            graph to be searched
+	 * @param node
+	 *            node to be searched in the graph
+	 */
 	public static <T> boolean dfs(Map<GraphNode<T>, List<GraphNode<T>>> graph,
 			GraphNode<T> node) {
 		HashSet<GraphNode<T>> visited = new HashSet<GraphNode<T>>();
@@ -81,6 +97,12 @@ public class SearchingTechniques {
 		return false;
 	}
 
+	/**
+	 * Prints the topological sort order of a given graph.
+	 * 
+	 * @param graph
+	 *            graph to be sorted topologically
+	 */
 	public static <T> void printTopologicalOrder(
 			Map<GraphNode<T>, List<GraphNode<T>>> graph) {
 		Set<GraphNode<T>> visited = new HashSet<GraphNode<T>>();
@@ -93,7 +115,7 @@ public class SearchingTechniques {
 		}
 	}
 
-	public static <T> void printTopologicalOrder(
+	private static <T> void printTopologicalOrder(
 			Map<GraphNode<T>, List<GraphNode<T>>> graph,
 			GraphNode<T> startNode, Set<GraphNode<T>> visited) {
 		visited.add(startNode);
