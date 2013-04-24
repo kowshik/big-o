@@ -351,13 +351,23 @@ public class SinglyLinkedList<T> implements List<T> {
 		return buffer.toString();
 	}
 
+	/**
+	 * Recursive pair-wise reversal.
+	 * 
+	 * Examples:
+	 * 
+	 * Input => [0], Output => [0]
+	 * Input => [0, 1], Output => [1, 0]
+	 * Input => [0, 1, 2], Output => [1, 0, 2]
+	 * Input => [0, 1, 2, 3], Output => [1, 0, 3, 2]
+	 */
 	@SuppressWarnings("unchecked")
-	public void pairWiseReverse() {
-		head = pairWiseReverse(head);
+	public void recursivePairWiseReverse() {
+		head = recursivePairWiseReverse(head);
 		resetTail();
 	}
 
-	private Node<T> pairWiseReverse(Node<T> head) {
+	private Node<T> recursivePairWiseReverse(Node<T> head) {
 		if (head == null) {
 			return null;
 		}
@@ -367,15 +377,66 @@ public class SinglyLinkedList<T> implements List<T> {
 		}
 
 		Node<T> next = head.getNext();
-		Node<T> pwReversed = pairWiseReverse(next.getNext());
+		Node<T> pwReversed = recursivePairWiseReverse(next.getNext());
 		next.setNext(head);
 		head.setNext(pwReversed);
 
 		return next;
 	}
 
+	/**
+	 * Non-recursive pair-wise reversal.
+	 * 
+	 * Examples:
+	 * 
+	 * Input => [0], Output => [0]
+	 * Input => [0, 1], Output => [1, 0]
+	 * Input => [0, 1, 2], Output => [1, 0, 2]
+	 * Input => [0, 1, 2, 3], Output => [1, 0, 3, 2]
+	 */
+	@SuppressWarnings("unchecked")
+	public void nonRecursivePairWiseReverse() {
+		head = nonRecursivePairWiseReverse(head);
+		resetTail();
+	}
+
+	private Node<T> nonRecursivePairWiseReverse(Node<T> head) {
+		if (head == null) {
+			return null;
+		}
+
+		if (head.getNext() == null) {
+			return head;
+		}
+
+		Node<T> first = head;
+		Node<T> second = head.getNext();
+		head = second;
+		Node<T> temp = null;
+
+		while (first != null && second != null) {
+			temp = second.getNext();
+			second.setNext(first);
+			if (temp != null) {
+				if (temp.getNext() != null) {
+					first.setNext(temp.getNext());
+				} else {
+					first.setNext(temp);
+				}
+				first = temp;
+				second = temp.getNext();
+			} else {
+				first.setNext(null);
+				first = second = null;
+			}
+		}
+
+		return head;
+	}
+
 	private void resetTail() {
 		if (head == null) {
+			tail = null;
 			return;
 		}
 
@@ -488,6 +549,12 @@ public class SinglyLinkedList<T> implements List<T> {
 
 		System.out.println(list);
 		list.sort(comparator);
+		System.out.println(list);
+
+		list.nonRecursivePairWiseReverse();
+		System.out.println(list);
+
+		list.recursivePairWiseReverse();
 		System.out.println(list);
 	}
 }
