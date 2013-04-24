@@ -4,17 +4,17 @@ package general;
  * Imagine the sequence: 0123456789101112131415... etc. This is a sequence
  * starting from '0', but with no separation between the digits of subsequent
  * numbers.
- * 
+ *
  * Here, the digits at indices 10 and 11 are '1' and '0' respectively, and they
  * together represent the number '10'. Similarly, the digits at indices 190,
  * 191, 192 are '1', '0' and '0' respectively, and they together represent the
  * number '100'.
- * 
+ *
  * Write a function that given only such an index into this sequence, returns
  * the digit at the given index.
- * 
+ *
  * Other examples:
- * 
+ *
  * index = 100 => result = 5
  * index = 30 => result = 2
  * index = 31 => result = 0

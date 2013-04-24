@@ -4,24 +4,24 @@ package general;
  * You are given  an imaginary onscreen keyboard containing the English
  * alphabets, 'a' through 'z' (lowercase), with the letters laid out in a
  * specified number of columns.
- * 
+ *
  * For example, if number of cols = 6, then the onscreen keyboard will be:
- * 
+ *
  * a b c d e f
  * g h i j k l
  * m n o p q r
  * s t u v w x
  * y z
- * 
+ *
  * You are using a remote control - (up - 'u', down 'd', left 'l', right 'r' and
  * enter '!') to navigate the keyboard, and you start at position (0, 0).
- * 
+ *
  * Write a function that given a word will produce the sequence
  * of key presses required to type out the word on the onscreen keyboard.
  * The function should return the sequence string.
- * 
+ *
  * For example:
- * 
+ *
  * getSequence(6, "google") should return "d!drr!!ull!rrrrr!ul!"
  * getSequence(1, "google") should return "dddddd!dddddddd!!uuuuuuuu!ddddd!uuuuuuu!"
  */

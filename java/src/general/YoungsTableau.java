@@ -8,7 +8,7 @@ import common.ArrayUtils;
  * order from top to bottom. Some of the entries of a Young tableau may be null,
  * which we treat as nonexistent elements. Thus a Young's tableau can be used to
  * hold r <= m x n numbers.
- * 
+ *
  * 1. Implement a function to search the Young's tableau for a specific number.
  * 2. Implement a function to extract the minimum value from the Young' tableau.
  */

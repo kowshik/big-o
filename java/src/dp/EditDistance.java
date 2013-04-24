@@ -6,7 +6,7 @@ package dp;
  * character from A, insert a character into A, or change some character in A
  * into a new character. The minimal number of such operations required to
  * transform A into B is called the edit distance between A and B.
- * 
+ *
  * Write a function to compute the edit distance between two given strings.
  */
 public class EditDistance {

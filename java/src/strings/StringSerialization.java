@@ -2,19 +2,19 @@ package strings;
 
 /**
  * Methods to serialize/deserialize an array of Strings.
- * 
+ *
  * i.e. Assume: String[] strings = {"abcd", "efgh"};
- * 
+ *
  * Then, the following always returns true as the serialize and deserialize
  * methods are consistent:
- * 
+ *
  * java.util.Arrays.equals(deserializeStrings(serializeStrings(strings)),
  * strings);
  */
 public class StringSerialization {
 	/**
 	 * Serializes an array of strings into bytes.
-	 * 
+	 *
 	 * @param strings
 	 *            array of strings to be deserialized
 	 * @return array of bytes representing the string
@@ -52,7 +52,7 @@ public class StringSerialization {
 	/**
 	 * Deserializes an array of strings from bytes. NOTE: The array of strings
 	 * should have been serialized using: {@link #serialize(String[])}.
-	 * 
+	 *
 	 * @param bytes
 	 *            array of bytes to be deserialized
 	 * @return deserialized array of strings

@@ -10,25 +10,25 @@ package general;
  * {5,1,3,2,6} can be imagined as a bar graph diagram on an X-Y plane with
  * X-axis representing the base of the terrain and Y-axis representing the
  * height of each piece of the terrain.
- * 
+ *
  * Now there is a sudden downpour of rain over this uneven terrain, and water
  * gets accumulated in the pits formed due to the ups and downs. Given the
  * terrain, your task is to write a function that can find the accumulated rain
  * water.
- * 
+ *
  * Here is a picture showing the above case: http://i.imgur.com/3pFFU.png
- * 
+ *
  * Examples:
- * 
+ *
  * [1]
- * 
+ *
  * Array: {5,1}. Answer: 0 units of water. Reason: There are no pits :-(
- * 
+ *
  * [2]
- * 
+ *
  * Array: {0,2,1,2}. Answer: 1 unit of water. Reason: 1 unit of water
  * accumulated between 2nd and 4th pieces of the terrain
- * 
+ *
  * @author Kowshik Prakasam (kowshik@gmail.com)
  */
 public class RainWater {
@@ -36,7 +36,7 @@ public class RainWater {
 	/**
 	 * Calculates rain water accumulated on the terrain between various peaks in
 	 * the terrain.
-	 * 
+	 *
 	 * @param terrain
 	 *            terrain described by an array of positive integers, each
 	 *            representing the height at a particular point.

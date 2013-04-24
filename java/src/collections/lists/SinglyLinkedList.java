@@ -353,9 +353,9 @@ public class SinglyLinkedList<T> implements List<T> {
 
 	/**
 	 * Recursive pair-wise reversal.
-	 * 
+	 *
 	 * Examples:
-	 * 
+	 *
 	 * Input => [0], Output => [0]
 	 * Input => [0, 1], Output => [1, 0]
 	 * Input => [0, 1, 2], Output => [1, 0, 2]
@@ -386,9 +386,9 @@ public class SinglyLinkedList<T> implements List<T> {
 
 	/**
 	 * Non-recursive pair-wise reversal.
-	 * 
+	 *
 	 * Examples:
-	 * 
+	 *
 	 * Input => [0], Output => [0]
 	 * Input => [0, 1], Output => [1, 0]
 	 * Input => [0, 1, 2], Output => [1, 0, 2]

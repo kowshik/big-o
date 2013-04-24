@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 /**
  * A class that can iterate over a list of iterators of the same type.<br>
  * For example, you can do the following : <br>
- * 
+ *
  * <pre>
  * {@code
  * List<Integer> l1 = new Vector<Integer>();
@@ -16,21 +16,21 @@ import java.util.NoSuchElementException;
  *    l2.add(4); l2.add(5); l2.add(6);
  * List<Integer> l3 = new Vector<Integer>();
  *    l3.add(7); l3.add(8); l3.add(9);
- * 
+ *
  * List<Iterator<Integer>> iterators = new Vector<Iterator<Integer>>();
  *    iterators.add(l1.iterator());
  *    iterators.add(l2.iterator());
  *    iterators.add(l3.iterator());
- * 
+ *
  * MultiIterator<Integer> mi = new MultiIterator<Integer>(iterators);
- * 
+ *
  * // Prints 1 to 9 in order
- * while(mi.hasNext()) { 
+ * while(mi.hasNext()) {
  *   System.out.println(mi.next());
  * }
  * @code}
  * </pre>
- * 
+ *
  * @author Kowshik Prakasam
  * @param <T>
  */

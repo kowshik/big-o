@@ -10,7 +10,7 @@ import java.util.Set;
 public class SearchingTechniques {
 	/**
 	 * Performs breadth first search for a given node in a graph.
-	 * 
+	 *
 	 * @param graph
 	 *            graph to be searched
 	 * @param node
@@ -58,7 +58,7 @@ public class SearchingTechniques {
 
 	/**
 	 * Performs depth first search for a given node in a graph.
-	 * 
+	 *
 	 * @param graph
 	 *            graph to be searched
 	 * @param node
@@ -99,7 +99,7 @@ public class SearchingTechniques {
 
 	/**
 	 * Prints the topological sort order of a given graph.
-	 * 
+	 *
 	 * @param graph
 	 *            graph to be sorted topologically
 	 */

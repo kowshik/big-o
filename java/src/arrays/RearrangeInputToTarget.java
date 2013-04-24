@@ -8,7 +8,7 @@ import java.util.Map;
  * same unique integers, and always the value zero in each of them. Also, the
  * target array is some permutation of the input array and both arrays are of
  * the same size.
- * 
+ *
  * You are supposed to write a method to convert the input array to the target
  * array. The restriction is that you can modify the input array by repeating
  * only the following operation any number of times: Take any value in the input

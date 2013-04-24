@@ -5,9 +5,9 @@ import java.util.Map;
 
 /**
  * A bounded cache that evicts keys based on least recently used strategy.
- * 
+ *
  * @author kprakasam
- * 
+ *
  * @param <K>
  *            Type of cache key
  * @param <V>

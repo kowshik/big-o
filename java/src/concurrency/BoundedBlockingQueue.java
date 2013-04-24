@@ -5,16 +5,16 @@ import java.util.Queue;
 
 /**
  * Implement add() and remove() methods for the queue data structure.
- * 
+ *
  * The queue should be a bounded queue i.e. at any point of time, it can only
  * hold a specified number of elements.
- * 
+ *
  * The queue should be blocking i.e. if a thread is trying to read from the
  * queue, and does not find any elements left to read, then it should wait until
  * an element becomes available. Similarly, if a thread is trying to write to
  * the queue, and finds the queue to be full, then it should wait until an
  * element is removed from the queue.
- * 
+ *
  * The queue should be fair i.e. if there are 10 readers waiting to read from
  * the queue, and if a queue element becomes available for reading, then the
  * reader thread that arrived earliest in time should be allowed access to read

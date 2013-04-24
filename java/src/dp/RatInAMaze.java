@@ -6,12 +6,12 @@ import java.util.Arrays;
  * A maze is represented as an M x N matrix of 0s and 1s. A rat is stuck in
  * location (0,0), and needs to find its way through the maze to location (M-1,
  * N-1).
- * 
+ *
  * The rat can move either right, or down.
- * 
+ *
  * If maze[x][y] == 0, it means that the rat cannot visit this location. If
  * maze[x][y] == 1, the rat is allowed to pass through the location.
- * 
+ *
  * Write a function to check if a path exists for the rate from (0, 0) to (M-1,
  * N-1) in the maze.
  */

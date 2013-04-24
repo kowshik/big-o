@@ -13,7 +13,7 @@ import common.Pair;
  * is a valid shuffle since it preserves the character ordering of the two
  * strings. So, given these 3 strings write a function that detects whether str3
  * is a valid shuffle of str1 and str2.
- * 
+ *
  * http://www.ardendertat.com/2011/10/10/programming-interview-questions-6-
  * combine-two-strings/
  */

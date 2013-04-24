@@ -2,14 +2,14 @@ package strings;
 
 /**
  * Write a function to match a given string to a regular expression.
- * 
+ *
  * '.' Matches any single character. '*' Matches zero or more of the preceding
  * element.
- * 
+ *
  * The matching should cover the entire input string (not partial).
- * 
+ *
  * Some examples:
- * 
+ *
  * isMatch("aa","a") -> false
  * isMatch("aa","aa") -> true
  * isMatch("aaa","aa") -> false

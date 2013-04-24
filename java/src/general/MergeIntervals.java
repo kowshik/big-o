@@ -10,12 +10,12 @@ import common.Pair;
  * You are given a series of non-intersecting intervals sorted in non-decreasing
  * order of their starting points. Write a function which when given another
  * interval, merges it into these existing intervals.
- * 
+ *
  * Examples:
- * 
+ *
  * [1] merge([12,13], { [1,2], [4,10], [17,22] }) => {[1,2], [4,10], [12,13],
  * [17,22]}
- * 
+ *
  * [2] merge([2,5], {[1,2], [4,10]}) => {[1,10]}
  */
 

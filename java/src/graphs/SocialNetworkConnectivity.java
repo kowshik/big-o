@@ -7,21 +7,21 @@ import java.util.Arrays;
  * timestamps at which times pairs of members formed friendships, design an
  * algorithm to determine the earliest time at which all members are connected
  * (i.e., every member is a friend of a friend of a friend ... of a friend).
- * 
+ *
  * Assume that the log file is sorted by timestamp and that friendship is an
  * equivalence relation (i.e. it is reflexive, symmetric and transitive). The
  * running time of your algorithm should be M logN or better and use extra space
  * proportional to N.
- * 
+ *
  * Sample structure of log file:
- * 
+ *
  * T1: A B T2: C D T3: A D . . . etc.
- * 
+ *
  * "T1: A B" => This means A and B became friends at time T1. Note that T1 < T2
  * < T3 etc. (i.e. file is sorted based on timestamps in ascending order)
- * 
+ *
  * @author kprakasam
- * 
+ *
  */
 class WeightedUnionFind {
 

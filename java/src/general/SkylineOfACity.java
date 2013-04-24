@@ -8,14 +8,14 @@ import collections.PeekIterator;
 /**
  * You are given the buildings present in the 2-D view of a city i.e. X-Y plane.
  * Each building is represented in the following format: (lx, rx, h) where:
- * 
+ *
  * lx => left x-coordinate of the building
  * rx => right x-coordinate of the building
  * h => height of the building
- * 
+ *
  * You are supposed to find the skyline of the city, represented as a sequence
  * of (x,y) points which when connected will yield the city skyline.
- * 
+ *
  * See this picture for an example: http://i.imgur.com/cTXlm.png
  */
 

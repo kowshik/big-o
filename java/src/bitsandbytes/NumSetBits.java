@@ -8,9 +8,9 @@ package bitsandbytes;
  * length from the offset. Write the method signature and code in any language.
  * (There are a number of tricky cases in low-level bits/bytes manipulation that
  * I realized only when I started implementing the solution).
- * 
+ *
  * @author kprakasam
- * 
+ *
  */
 public class NumSetBits {
 	public static long getNumSetBits(byte[] leds, long offset, long length) {

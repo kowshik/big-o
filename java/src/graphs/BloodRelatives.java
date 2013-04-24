@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * You are given a graph of persons. Each node in the graph is of type class
  * person (see below). Each person is connected to his parents.
- * 
+ *
  * Two persons A and B are defined to be blood relatives if they share atleast
  * one ancestor. Write a method to check if any two persons A and B in a graph
  * are blood relatives.

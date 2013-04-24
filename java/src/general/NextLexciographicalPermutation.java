@@ -7,7 +7,7 @@ import common.ArrayUtils;
  * size as string 'S'. If no such permutation exists, return null. Assume that
  * each permutation (including the input) has unique characters, and the
  * character set is lowercase english alphabets ('a' to 'z').
- * 
+ *
  * http://pythonadventures.wordpress.com/2012/03/21/lexicographically-next-
  * permutation/
  */

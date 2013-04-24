@@ -9,15 +9,15 @@ import java.util.NoSuchElementException;
  * An iterator that hops specified number of times and then returns the next
  * element after the hop. Note: the iterator always returns the first element as
  * it is, and starts hopping only after the first element.
- * 
+ *
  * Examples:
- * 
+ *
  * If the original iterator returns: [1, 2, 3, 4, 5] in order, then the hopping
  * iterator will return [1, 3, 5] in order when the hop value is 1.
- * 
+ *
  * If the original iterator returns: [1, 2, 3, 4, 5] in order, then the hopping
  * iterator will return [1, 4] in order when the hop value is 2.
- * 
+ *
  * If the original iterator returns: [1, 2, 3, 4, 5] in order, then the hopping
  * iterator will return [1, 5] in order when the hop value is 3.
  */

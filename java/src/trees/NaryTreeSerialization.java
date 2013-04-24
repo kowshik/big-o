@@ -16,9 +16,9 @@ import common.Pair;
 /**
  * Write functions to serialize/deserialize an N-ary tree containing only
  * strings to/from a byte stream.
- * 
+ *
  * The serialization format is the following:
- * 
+ *
  * |NUMBER OF NODES|    NODE METADATA    |  STRINGS  |
  *       (int32)       (int32, int32)[]     string[]
  */

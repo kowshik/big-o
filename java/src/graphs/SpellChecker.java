@@ -12,14 +12,14 @@ import java.util.Set;
  * list of words. Note that the searched word can contain the letter '?' in
  * addition to regular characters. The character '?' is a wild card and
  * represents the occurrence of any random letter exactly once.
- * 
+ *
  * Examples:
  * ---------
- * 
+ *
  * Input: ["dog", "cat", "bat", "seat"]
- * 
+ *
  * Queries:
- * 
+ *
  * 1. exists("do?") => true (matches dog)
  * 2. exists("???") => true (matches dog, cat, bat)
  * 3. exists ("??a?") => true (matches seat)
@@ -115,7 +115,7 @@ public class SpellChecker {
 
 		return false;
 	}
-	
+
 	public static void main(String[] args) {
 		List<String> words = new ArrayList<String>();
 		words.add("dog");
@@ -123,10 +123,10 @@ public class SpellChecker {
 		words.add("mouse");
 		words.add("mat");
 		words.add("fat");
-		
+
 		System.out.printf("Input words: %s\n\n", words);
 		SpellChecker checker = new SpellChecker(words);
-		
+
 		String word = "dog";
 		System.out.printf("exists(%s) => %b\n", word, checker.exists(word));
 		word = "cat";
@@ -137,7 +137,7 @@ public class SpellChecker {
 		System.out.printf("exists(%s) => %b\n", word, checker.exists(word));
 		word = "fat";
 		System.out.printf("exists(%s) => %b\n", word, checker.exists(word));
-		
+
 		word = "?og";
 		System.out.printf("exists(%s) => %b\n", word, checker.exists(word));
 		word = "??use";
@@ -148,7 +148,7 @@ public class SpellChecker {
 		System.out.printf("exists(%s) => %b\n", word, checker.exists(word));
 		word = "?????";
 		System.out.printf("exists(%s) => %b\n\n", word, checker.exists(word));
-		
+
 		word = "?oc";
 		System.out.printf("exists(%s) => %b\n", word, checker.exists(word));
 		word = "ma???";

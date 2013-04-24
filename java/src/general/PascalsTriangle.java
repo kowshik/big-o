@@ -2,7 +2,7 @@ package general;
 
 /**
  * Write a program to print Pascal's triangle.
- * 
+ *
  * See this: http://en.wikipedia.org/wiki/Binomial_theorem. The trick is that
  * for a given value N, each binomial coffecient can be calculated from the
  * previous binomial coefficient.
