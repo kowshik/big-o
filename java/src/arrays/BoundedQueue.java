@@ -7,6 +7,16 @@ import java.util.Queue;
 
 /**
  * Implement add and remove methods for a generic bounded circular queue.
+ * 
+ * Signature of expected methods:
+ * 
+ * public class BoundedQueue<T> implements Queue<T> {
+ * 	  public BoundedQueue(int capacity); // constructor
+ * 	  public boolean add(T element);
+ * 	  public T remove();
+ * }
+ * 
+ * Leave the remaining methods in the Queue interface unimplemented.
  */
 public class BoundedQueue<T> implements Queue<T> {
 
