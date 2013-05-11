@@ -6,7 +6,7 @@ import java.util.Set;
 
 /**
  * You are given an array of size N containing *only* non-negative integers
- * (i.e. >= 0) From any index in the array, a hop can be either of the
+ * (i.e. >= 0). From any index in the array, a hop can be either of the
  * following:
  *
  * [1] Jump array[index] positions

@@ -1,8 +1,10 @@
 package arrays;
 
 /**
- * Count number of inversions in an array of integers. An inversion is a pair
- * (i,j) such that i < j and array[i] > array[j].
+ * Count number of inversions in an array of integers.
+ * 
+ * An inversion is a pair of indices: (i,j) such that i < j and array[i] >
+ * array[j].
  */
 public class CountInversions {
 	public static long countInversions(int[] array) {
@@ -10,6 +12,7 @@ public class CountInversions {
 				new int[array.length]);
 	}
 
+	// Recursively counts the inversions.
 	private static long countInversions(int[] array, int start, int end,
 			int[] merged) {
 		if (start == end) {
@@ -28,6 +31,8 @@ public class CountInversions {
 				+ mergeAndCountInversions(left, right, merged);
 	}
 
+	// This method is very similar to merge sort's merge method. Study the
+	// merge method first if you don't immediately understand the below.
 	private static long mergeAndCountInversions(int[] foo, int[] bar,
 			int[] merged) {
 		if (foo == null || bar == null || merged == null) {

@@ -3,8 +3,8 @@ package arrays;
 /**
  * Write a program that given n integers in the range 0 to k, pre-processes its
  * input and then answers any query about how many of the n integers fall into a
- * range [a,b] in O(1) time (note: the range includes a and b). Your algorithm
- * should use O(n + k) pre-preocessing time.
+ * range [a,b] in O(1) time (note: the range includes a and b).
+ * Your algorithm can use no more than O(n + k) pre-preocessing time.
  */
 public class Answer0toKRangeQuery {
 	private final int[] counter;

@@ -5,6 +5,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
+/**
+ * Implement add and remove methods for a generic bounded circular queue.
+ */
 public class BoundedQueue<T> implements Queue<T> {
 
 	private int size;
@@ -53,7 +56,7 @@ public class BoundedQueue<T> implements Queue<T> {
 		return removed;
 	}
 
-	// We don't implement the methods below.
+	// We don't care about the methods below.
 
 	@Override
 	public boolean addAll(Collection<? extends T> arg0) {
