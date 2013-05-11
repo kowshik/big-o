@@ -14,6 +14,10 @@ import java.util.Set;
  *
  * The target of this question is to find the number of hops required to reach
  * the last element in the array from the first element.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static int findNumHops(int[] array) {   
  */
 public class FindNumHops {
 	public static int findNumHops(int[] array) {

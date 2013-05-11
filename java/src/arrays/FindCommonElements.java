@@ -5,6 +5,10 @@ import java.util.List;
 
 /**
  * Find common elements between two sorted integer arrays.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static List<Integer> findCommonElements(int[] a, int[] b);
  */
 public class FindCommonElements {
 	public static List<Integer> findCommonElements(int[] a, int[] b) {

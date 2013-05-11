@@ -5,6 +5,10 @@ package arrays;
  * 
  * An inversion is a pair of indices: (i,j) such that i < j and array[i] >
  * array[j].
+ * 
+ * Signature of expected method:
+ * 
+ *    public static long countInversions(int[] array);
  */
 public class CountInversions {
 	public static long countInversions(int[] array) {
