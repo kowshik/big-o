@@ -5,7 +5,13 @@ package binarytrees;
  * How many structurally different binary search trees are there that store
  * those values? Write a recursive function that, given the number of distinct
  * values, computes the number of structurally unique binary search trees that
- * store those values. For example, countTrees(4) should return 14, since there
+ * store those values.
+ * 
+ * Signature of expected method:
+ * 
+ * public static <T> long countTrees(int numKeys);
+ * 
+ * For example, countTrees(4) should return 14, since there
  * are 14 structurally unique binary search trees that store 1, 2, 3, and 4.
  */
 public class BstCountTrees {

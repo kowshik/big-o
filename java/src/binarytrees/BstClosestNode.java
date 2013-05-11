@@ -1,8 +1,12 @@
 package binarytrees;
 
 /**
- * Given the root of a BST and a node in the tree, find the node closest to the
- * given node.
+ * Given the root of a binary search tree and a node from the same tree, find
+ * the node closest to the given node.
+ * 
+ * Signature of expected method:
+ * 
+ * public static TreeNode<Integer> findClosestNode(TreeNode<Integer> bstRootNode, TreeNode<Integer> node);
  */
 public class BstClosestNode {
 	public static TreeNode<Integer> findClosestNode(
