@@ -2,10 +2,10 @@ Big O
 =====
 
 A big collection of data structures and algorithms puzzles.
+As on May 2013, the repository has roughly 130 problems with solutions.
 
 Solutions are primarily in Java (under [java/](https://github.com/kowshik/big-o/tree/master/java)). Some solutions are in Ruby (under [ruby/](https://github.com/kowshik/big-o/tree/master/ruby)).
 
-As on May 2013, the repository has roughly 130 problems with solutions.
 Problem statements are specified as Javadoc at the top of every solution. I have tried to be as descriptive as I can, but if something is not clear then please do let me know!
 Problems are broadly classified into the following categories which are self explanatory.
 
