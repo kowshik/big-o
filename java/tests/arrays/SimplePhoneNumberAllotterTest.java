@@ -5,10 +5,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class PhoneNumberAllotterTest {
+public class SimplePhoneNumberAllotterTest {
 	@Test
 	public void get_RaiseErrorWhenNoNumbersAreLeft() {
-		PhoneNumberAllotter tested = new PhoneNumberAllotter(0);
+		PhoneNumberAllotter tested = new SimplePhoneNumberAllotter(0);
 
 		boolean thrown = false;
 		try {
@@ -22,7 +22,7 @@ public class PhoneNumberAllotterTest {
 
 	@Test
 	public void get_ReturnExpectedPhoneNumbers() {
-		PhoneNumberAllotter tested = new PhoneNumberAllotter(5);
+		PhoneNumberAllotter tested = new SimplePhoneNumberAllotter(5);
 
 		assertEquals(0, tested.get());
 		assertEquals(4, tested.get(4));
@@ -33,7 +33,7 @@ public class PhoneNumberAllotterTest {
 
 	@Test
 	public void get_ReturnSequentialPhoneNumbers() {
-		PhoneNumberAllotter tested = new PhoneNumberAllotter(5);
+		PhoneNumberAllotter tested = new SimplePhoneNumberAllotter(5);
 
 		assertEquals(0, tested.get());
 		assertEquals(1, tested.get());
@@ -44,7 +44,7 @@ public class PhoneNumberAllotterTest {
 
 	@Test
 	public void get_FancyNumber_RaiseErrorWhenNoNumbersAreLeft() {
-		PhoneNumberAllotter tested = new PhoneNumberAllotter(1);
+		PhoneNumberAllotter tested = new SimplePhoneNumberAllotter(1);
 
 		tested.get();
 
@@ -60,7 +60,7 @@ public class PhoneNumberAllotterTest {
 
 	@Test
 	public void get_FancyNumber_RaiseErrorWhenBadFancyNumberIsPassed() {
-		PhoneNumberAllotter tested = new PhoneNumberAllotter(0);
+		PhoneNumberAllotter tested = new SimplePhoneNumberAllotter(0);
 
 		boolean thrown = false;
 		try {
@@ -74,7 +74,7 @@ public class PhoneNumberAllotterTest {
 
 	@Test
 	public void get_FancyNumber_ReturnExpectedFancyNumbers() {
-		PhoneNumberAllotter tested = new PhoneNumberAllotter(8);
+		PhoneNumberAllotter tested = new SimplePhoneNumberAllotter(8);
 
 		assertEquals(4, tested.get(4));
 		assertEquals(1, tested.get(4));
