@@ -3,7 +3,12 @@ package binarytrees;
 import java.util.LinkedList;
 
 /**
- * Print all different paths from root to leaves in a binary tree.
+ * Given the root of a binary tree, print all different paths from root to
+ * leaves to standard out.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static void printPaths(TreeNode<?> root) {...}
  */
 public class TreePrintPaths {
 	public static void printPaths(TreeNode<?> root) {

@@ -5,58 +5,58 @@ import java.util.Map;
 
 /**
  * A bounded cache that evicts keys based on least recently used strategy.
- *
- * @author kprakasam
- *
- * @param <K>
+ * 
+ * @param <CacheKeyType>
  *            Type of cache key
- * @param <V>
+ * @param <CacheValueType>
  *            Type of cache value
  */
-public class LRUCache<K, V> implements Cache<K, V> {
+public class LRUCache<CacheKeyType, CacheValueType> implements
+		Cache<CacheKeyType, CacheValueType> {
 
-	private static class CacheNode<P, Q> {
-		private CacheNode<P, Q> previous;
-		private CacheNode<P, Q> next;
-		private P key;
-		private Q value;
+	private static class CacheNode<CacheNodeKeyType, CacheNodeValueType> {
+		private CacheNode<CacheNodeKeyType, CacheNodeValueType> previous;
+		private CacheNode<CacheNodeKeyType, CacheNodeValueType> next;
+		private CacheNodeKeyType key;
+		private CacheNodeValueType value;
 
-		public CacheNode<P, Q> getPrevious() {
+		public CacheNode<CacheNodeKeyType, CacheNodeValueType> getPrevious() {
 			return previous;
 		}
 
-		public void setPrevious(CacheNode<P, Q> previous) {
+		public void setPrevious(
+				CacheNode<CacheNodeKeyType, CacheNodeValueType> previous) {
 			this.previous = previous;
 		}
 
-		public CacheNode<P, Q> getNext() {
+		public CacheNode<CacheNodeKeyType, CacheNodeValueType> getNext() {
 			return next;
 		}
 
-		public void setNext(CacheNode<P, Q> next) {
+		public void setNext(CacheNode<CacheNodeKeyType, CacheNodeValueType> next) {
 			this.next = next;
 		}
 
-		public P getKey() {
+		public CacheNodeKeyType getKey() {
 			return key;
 		}
 
-		public void setKey(P key) {
+		public void setKey(CacheNodeKeyType key) {
 			this.key = key;
 		}
 
-		public Q getValue() {
+		public CacheNodeValueType getValue() {
 			return value;
 		}
 
-		public void setValue(Q value) {
+		public void setValue(CacheNodeValueType value) {
 			this.value = value;
 		}
 	}
 
 	private int capacity;
-	private final Map<K, CacheNode<K, V>> cache = new HashMap<K, CacheNode<K, V>>();
-	private CacheNode<K, V> head, tail;
+	private final Map<CacheKeyType, CacheNode<CacheKeyType, CacheValueType>> cache = new HashMap<CacheKeyType, CacheNode<CacheKeyType, CacheValueType>>();
+	private CacheNode<CacheKeyType, CacheValueType> head, tail;
 	public static final int DEFAULT_CAPACITY = 100;
 
 	public LRUCache() {
@@ -75,7 +75,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
 		checkCapacity(capacity);
 
 		for (int count = cache.size(); count > capacity; count--) {
-			CacheNode<K, V> evicted = evict();
+			CacheNode<CacheKeyType, CacheValueType> evicted = evict();
 			cache.remove(evicted.getKey());
 		}
 
@@ -95,24 +95,24 @@ public class LRUCache<K, V> implements Cache<K, V> {
 	}
 
 	@Override
-	public V get(K key) {
+	public CacheValueType get(CacheKeyType key) {
 		if (!cache.containsKey(key)) {
 			return null;
 		}
 
-		CacheNode<K, V> node = cache.get(key);
+		CacheNode<CacheKeyType, CacheValueType> node = cache.get(key);
 		moveNodeToLast(node);
 
 		return node.getValue();
 	}
 
-	private void moveNodeToLast(CacheNode<K, V> node) {
+	private void moveNodeToLast(CacheNode<CacheKeyType, CacheValueType> node) {
 		if (tail == node) {
 			return;
 		}
 
-		CacheNode<K, V> previous = node.getPrevious();
-		CacheNode<K, V> next = node.getNext();
+		CacheNode<CacheKeyType, CacheValueType> previous = node.getPrevious();
+		CacheNode<CacheKeyType, CacheValueType> next = node.getNext();
 		if (previous != null) {
 			previous.setNext(next);
 		}
@@ -132,20 +132,20 @@ public class LRUCache<K, V> implements Cache<K, V> {
 	}
 
 	@Override
-	public void put(K key, V value) {
+	public void put(CacheKeyType key, CacheValueType value) {
 		if (cache.containsKey(key)) {
-			CacheNode<K, V> existing = cache.get(key);
+			CacheNode<CacheKeyType, CacheValueType> existing = cache.get(key);
 			existing.setValue(value);
 			moveNodeToLast(existing);
 			return;
 		}
 
-		CacheNode<K, V> newNode;
+		CacheNode<CacheKeyType, CacheValueType> newNode;
 		if (cache.size() == capacity) {
 			newNode = evict();
 			cache.remove(newNode.getKey());
 		} else {
-			newNode = new CacheNode<K, V>();
+			newNode = new CacheNode<CacheKeyType, CacheValueType>();
 		}
 
 		newNode.setKey(key);
@@ -155,12 +155,12 @@ public class LRUCache<K, V> implements Cache<K, V> {
 		cache.put(key, newNode);
 	}
 
-	private CacheNode<K, V> evict() {
+	private CacheNode<CacheKeyType, CacheValueType> evict() {
 		if (head == null) {
 			throw new AssertionError("Cannot evict a node from an empty cache.");
 		}
 
-		CacheNode<K, V> evicted = head;
+		CacheNode<CacheKeyType, CacheValueType> evicted = head;
 		head = evicted.getNext();
 		head.setPrevious(null);
 		evicted.setNext(null);
@@ -168,7 +168,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
 		return evicted;
 	}
 
-	private void addNewNode(CacheNode<K, V> node) {
+	private void addNewNode(CacheNode<CacheKeyType, CacheValueType> node) {
 		if (cache.isEmpty()) {
 			head = tail = node;
 			return;

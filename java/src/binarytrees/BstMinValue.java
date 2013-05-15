@@ -2,6 +2,10 @@ package binarytrees;
 
 /**
  * Find the smallest value in a binary search tree.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static <T> T minValue(TreeNode<T> root) {...}
  */
 public class BstMinValue {
 	public static <T> T minValue(TreeNode<T> root) {

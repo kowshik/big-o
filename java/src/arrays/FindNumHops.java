@@ -17,7 +17,7 @@ import java.util.Set;
  * 
  * Signature of expected method:
  * 
- *    public static int findNumHops(int[] array) {   
+ *    public static int findNumHops(int[] array)  {...} 
  */
 public class FindNumHops {
 	public static int findNumHops(int[] array) {

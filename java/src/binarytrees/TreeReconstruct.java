@@ -2,11 +2,17 @@ package binarytrees;
 
 import java.util.Comparator;
 
+/**
+ * Reconstruct a binary tree from its inorder and preorder traversals.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static <T> TreeNode<T> reconstruct(T[] inorder, T[] preorder,
+ *			                                    Comparator<T> comparator) {...}
+ */
+
 public class TreeReconstruct {
 
-	/**
-	 * Reconstruct a binary tree from its inorder and preorder traversals.
-	 */
 	public static <T> TreeNode<T> reconstruct(T[] inorder, T[] preorder,
 			Comparator<T> comparator) {
 		return reconstruct(inorder, 0, inorder.length - 1, preorder, 0,

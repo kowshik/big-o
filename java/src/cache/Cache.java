@@ -1,9 +1,17 @@
 package cache;
 
-public interface Cache<K, V> {
-	V get(K key);
+/**
+ * A simple cache interface.
+ * 
+ * @param <CacheKeyType>
+ *            Type of cache key
+ * @param <CacheValueType>
+ *            Type of cache value
+ */
+public interface Cache<CacheKeyType, CacheValueType> {
+	CacheValueType get(CacheKeyType key);
 
-	void put(K key, V value);
+	void put(CacheKeyType key, CacheValueType value);
 
 	int getSize();
 }

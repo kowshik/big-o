@@ -6,10 +6,10 @@ package bitsandbytes;
  * length. You need to find the number of LED bulbs present in ON state,
  * starting at the specified offset in the series of bits, until the specified
  * length from the offset. Write the method signature and code in any language.
- * (There are a number of tricky cases in low-level bits/bytes manipulation that
- * I realized only when I started implementing the solution).
- *
- * @author kprakasam
+ * 
+ * Signature of expected method:
+ * 
+ *    public static long getNumSetBits(byte[] leds, long offset, long length) {...}
  *
  */
 public class NumSetBits {

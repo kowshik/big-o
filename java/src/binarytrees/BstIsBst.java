@@ -3,6 +3,10 @@ package binarytrees;
 /**
  * Check if a binary tree is a binary search tree. To keep things simple, assume
  * that the binary tree contains only integers.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static boolean isBst(TreeNode<Integer> rootNode) {...}
  */
 public class BstIsBst {
 	public static boolean isBst(TreeNode<Integer> rootNode) {

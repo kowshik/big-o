@@ -6,7 +6,8 @@ package binarytrees;
  * 
  * Signature of expected method:
  * 
- * public static TreeNode<Integer> findClosestNode(TreeNode<Integer> bstRootNode, TreeNode<Integer> node);
+ *    public static TreeNode<Integer> findClosestNode(TreeNode<Integer> bstRootNode,
+ *                                                    TreeNode<Integer> node);
  */
 public class BstClosestNode {
 	public static TreeNode<Integer> findClosestNode(

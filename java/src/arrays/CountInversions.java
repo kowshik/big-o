@@ -8,7 +8,7 @@ package arrays;
  * 
  * Signature of expected method:
  * 
- *    public static long countInversions(int[] array);
+ *    public static long countInversions(int[] array)  {...}
  */
 public class CountInversions {
 	public static long countInversions(int[] array) {

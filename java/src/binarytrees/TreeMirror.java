@@ -2,6 +2,10 @@ package binarytrees;
 
 /**
  * Given a binary tree, convert it into its mirror.
+ * 
+ * Signature of expected method:
+ *    
+ *    public static <T> void mirror(TreeNode<T> root) {
  */
 public class TreeMirror {
 	public static <T> void mirror(TreeNode<T> root) {

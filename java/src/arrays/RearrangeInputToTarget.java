@@ -13,6 +13,10 @@ import java.util.Map;
  * array. The restriction is that you can modify the input array by repeating
  * only the following operation any number of times: Take any value in the input
  * array and swap its location with that of the value zero in the same array.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static void rearrange(int[] input, int[] target) {...}
  */
 public class RearrangeInputToTarget {
 

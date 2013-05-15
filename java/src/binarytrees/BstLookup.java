@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 /**
  * Check if a given node exists in the binary search tree.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static <T> boolean lookup(TreeNode<T> rootNode,
+			TreeNode<T> searchedNode, Comparator<T> comparator) {...}
  */
 public class BstLookup {
 	public static <T> boolean lookup(TreeNode<T> rootNode,

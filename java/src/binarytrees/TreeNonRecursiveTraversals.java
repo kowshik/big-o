@@ -1,10 +1,30 @@
 package binarytrees;
 
 import java.util.LinkedList;
+
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * Given the root of a binary tree, print its pre-order, in-order and post-order
+ * traversal to standard out.
+ * 
+ * Signature of expected methods:
+ * 
+ *    public static void traversePreorder(TreeNode<?> rootNode) {...}
+ *    public static void traversePreorder(TreeNode<?> rootNode) {...}
+ *    public static void traversePreorder(TreeNode<?> rootNode) {...}
+ *    public static void traverseLevelorder(TreeNode<?> rootNode) {...}
+ * 
+ * Given the root of a binary tree, print the level order traversal for a specific
+ * level.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static void traverseLevelorder(TreeNode<?> rootNode, int level) {...}
+ */
 public class TreeNonRecursiveTraversals {
+
 	public static void traversePreorder(TreeNode<?> rootNode) {
 		if (rootNode == null) {
 			return;
@@ -29,7 +49,7 @@ public class TreeNonRecursiveTraversals {
 			}
 		}
 	}
-
+	
 	public static void traverseInorder(TreeNode<?> rootNode) {
 		if (rootNode == null) {
 			return;
@@ -85,7 +105,7 @@ public class TreeNonRecursiveTraversals {
 	}
 
 	// level (starting from 0) is the level that should be traversed.
-	public static void traverseLevelOrder(TreeNode<?> rootNode, int level) {
+	public static void traverseLevelorder(TreeNode<?> rootNode, int level) {
 		if (level < 0) {
 			throw new IllegalArgumentException(String.format(
 					"level should be >= 0. You passed: %d.", level));

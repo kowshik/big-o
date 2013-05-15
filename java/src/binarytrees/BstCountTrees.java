@@ -9,7 +9,7 @@ package binarytrees;
  * 
  * Signature of expected method:
  * 
- * public static <T> long countTrees(int numKeys);
+ *    public static <T> long countTrees(int numKeys);
  * 
  * For example, countTrees(4) should return 14, since there
  * are 14 structurally unique binary search trees that store 1, 2, 3, and 4.

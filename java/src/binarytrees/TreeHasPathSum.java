@@ -4,6 +4,10 @@ package binarytrees;
  * Given a binary tree and a sum, return true if the tree has a root-to-leaf
  * path such that adding up all the values along the path equals the given sum.
  * Return false if no such path can be found.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static boolean hasPathSum(TreeNode<Integer> root, int sum) {...}
  */
 public class TreeHasPathSum {
 	public static boolean hasPathSum(TreeNode<Integer> root, int sum) {

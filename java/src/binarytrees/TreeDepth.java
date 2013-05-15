@@ -2,6 +2,10 @@ package binarytrees;
 
 /**
  * Given a binary tree, find its depth.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static int maxDepth(TreeNode<?> root) {...}
  */
 public class TreeDepth {
 	public static int maxDepth(TreeNode<?> root) {

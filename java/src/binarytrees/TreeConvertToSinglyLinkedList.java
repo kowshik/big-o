@@ -8,6 +8,11 @@ import common.Pair;
  * tree. The order of nodes in the linked list is the same order that occurs in
  * the inorder representation of the binary tree. Also the solution must set all
  * "left" pointers in each node to null.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static TreeNode<Integer> convertToSinglyLinkedList(
+			TreeNode<Integer> root) {...}
  */
 public class TreeConvertToSinglyLinkedList {
 	public static TreeNode<Integer> convertToSinglyLinkedList(

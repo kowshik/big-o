@@ -10,11 +10,11 @@ package arrays;
  * following signature. The constructor should take as input the array to be
  * processed, and the value K which determines the range 0 to K.
  * 
- *    Answer0toKRangeQuery(int[] array, int k)
+ *    Answer0toKRangeQuery(int[] array, int k)  {...}
  * 
  * Your class should also implement the method:
  * 
- *    int countNumIntegers(int rangeStart, int rangeEnd)
+ *    int countNumIntegers(int rangeStart, int rangeEnd)  {...}
  * 
  * The above method answers the required queries in O(1) time.
  */

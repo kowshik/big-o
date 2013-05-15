@@ -8,7 +8,7 @@ import java.util.List;
  * 
  * Signature of expected method:
  * 
- *    public static List<Integer> findCommonElements(int[] a, int[] b);
+ *    public static List<Integer> findCommonElements(int[] a, int[] b)  {...}
  */
 public class FindCommonElements {
 	public static List<Integer> findCommonElements(int[] a, int[] b) {

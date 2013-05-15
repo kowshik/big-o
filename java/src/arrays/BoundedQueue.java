@@ -16,7 +16,7 @@ import java.util.Queue;
  * 	  public T remove();
  * }
  * 
- * Leave the remaining methods in the Queue interface unimplemented.
+ * You may leave the remaining methods in the Queue interface unimplemented.
  */
 public class BoundedQueue<T> implements Queue<T> {
 

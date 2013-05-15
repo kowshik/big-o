@@ -5,6 +5,10 @@ import common.Pair;
 /**
  * Given a BST, find the mode i.e. the value that occurs maximum number of
  * times.
+ * 
+ * Signature of expected method:
+ * 
+ *    public static <T> T findMode(TreeNode<T> root) {...}
  */
 public class BstFindMode {
 	public static <T> T findMode(TreeNode<T> root) {
