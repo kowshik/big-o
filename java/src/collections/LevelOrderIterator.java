@@ -8,7 +8,15 @@ import java.util.Queue;
 import binarytrees.TreeNode;
 
 /**
- * Implement a level order iterator for binary trees.
+ * Implement an iterator that iterates through a binary tree in level order.
+ * 
+ * Methods expected to be implemented:
+ * 
+ * public class LevelOrderIterator<T> implements Iterator<T> {
+ * 		public LevelOrderIterator(TreeNode<T> rootNode) {..}
+ * 		public boolean hasNext() {...}
+ * 		public T next() {...}
+ * }
  */
 public class LevelOrderIterator<T> implements Iterator<T> {
 

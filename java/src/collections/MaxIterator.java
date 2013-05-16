@@ -8,6 +8,14 @@ import java.util.Vector;
 /**
  * Implement a max iterator i.e. it always returns the next item in the list
  * bigger than the last item returned.
+ * 
+ * Methods expected to be implemented:
+ * 
+ * public class MaxIterator<T> implements Iterator<T> {
+ * 		public MaxIterator(Iterator<T> iterator, Comparator<T> comparator) {..}
+ * 		public boolean hasNext() {...}
+ * 		public T next() {...}
+ * }
  */
 public class MaxIterator<T> implements Iterator<T> {
 

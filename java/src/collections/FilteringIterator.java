@@ -6,8 +6,17 @@ import java.util.NoSuchElementException;
 import common.Predicate;
 
 /**
- * Implements an iterator that filters elements from the underlying iterator
+ * Implement an iterator that filters elements from the underlying iterator
  * based on the given predicate.
+ * 
+ * Methods expected to be implemented:
+ * 
+ * public class FilteringIterator<T> implements Iterator<T> {
+ * 		public FilteringIterator(Iterator<T> iterator,
+ * 								 Predicate<T> predicate) {...}
+ * 		public boolean hasNext() {...}
+ * 		public T next() {...}
+ * }
  */
 public class FilteringIterator<T> implements Iterator<T> {
 

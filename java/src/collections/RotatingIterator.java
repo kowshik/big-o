@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Implements a rotating iterator. The iterator accepts an array list of
+ * Implement a rotating iterator. The iterator accepts an array list of
  * iterators, and iterates over them column-wise.
  *
  * i.e If the following iterators are passed:
@@ -16,6 +16,14 @@ import java.util.NoSuchElementException;
  * order:
  *
  * 1, 2, 4, 3, 5.
+ * 
+ * Methods expected to be implemented:
+ * 
+ * public class RotatingIterator<T> implements Iterator<T> {
+ * 		public RotatingIterator(ArrayList<Iterator<T>> iterators) {...}
+ * 		public boolean hasNext() {...}
+ * 		public T next() {...}
+ * }
  */
 public class RotatingIterator<T> implements Iterator<T> {
 

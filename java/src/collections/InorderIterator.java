@@ -7,7 +7,15 @@ import java.util.Stack;
 import binarytrees.TreeNode;
 
 /**
- * An iterator that iterates through a binary tree in in-order.
+ * Implement an iterator that iterates through a binary tree in inorder.
+ * 
+ * Methods expected to be implemented:
+ *  
+ * public class InorderIterator<T> implements Iterator<T> {
+ * 		public InorderIterator(TreeNode<T> rootNode) {...}
+ * 		public boolean hasNext() {...}
+ * 		public T next() {...}
+ * }
  */
 public class InorderIterator<T> implements Iterator<T> {
 	private T nextItem;

@@ -7,7 +7,15 @@ import java.util.Stack;
 import binarytrees.TreeNode;
 
 /**
- * An iterator that iterates through a binary tree in pre-order.
+ * Implement an iterator that iterates through a binary tree in preorder.
+ * 
+ * Methods expected to be implemented:
+ * 
+ * public class PreorderIterator<T> implements Iterator<T> {
+ * 		public PreorderIterator(TreeNode<T> rootNode) {...}
+ * 		public boolean hasNext() {...}
+ * 		public T next() {...}
+ * }
  */
 public class PreorderIterator<T> implements Iterator<T> {
 	private T nextItem;

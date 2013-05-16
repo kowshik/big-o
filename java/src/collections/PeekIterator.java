@@ -4,9 +4,16 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Implements the peek() function on top of a given iterator. This
- * can be used to peek at values in the underlying iterator before
- * iterating over them.
+ * Implement a peeking iterator. This can be used to peek at values
+ * in the underlying iterator before iterating over them.
+ * 
+ * Methods expected to be implemented:
+ * 
+ * public class PeekIterator<T> implements Iterator<T> {
+ * 		public PeekIterator(Iterator<T> iterator) {...}
+ * 		public boolean hasNext() {...}
+ * 		public T next() {...}
+ * }
  */
 public class PeekIterator<T> implements Iterator<T> {
 
