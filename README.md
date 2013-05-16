@@ -20,6 +20,7 @@ Please feel free to contribute!
 * [dp/](https://github.com/kowshik/big-o/tree/master/java/src/dp)
 * [general/](https://github.com/kowshik/big-o/tree/master/java/src/general)
 * [graphs/](https://github.com/kowshik/big-o/tree/master/java/src/graphs)
+* [linkedlists/](https://github.com/kowshik/big-o/tree/master/java/src/linkedlists)
 * [sorting/](https://github.com/kowshik/big-o/tree/master/java/src/sorting)
 * [strings/](https://github.com/kowshik/big-o/tree/master/java/src/strings)
 * [trees/](https://github.com/kowshik/big-o/tree/master/java/src/trees)
