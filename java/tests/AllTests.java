@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 		binarytree.BstClosestNodeTest.class, binarytree.BstFindModeTest.class,
 		sorting.MergeSortTest.class, cache.LRUCacheTest.class,
 		collections.DeepIteratorTest.class, collections.PeekIteratorTest.class,
-		collections.lists.SinglyLinkedListTest.class,
+		lists.SinglyLinkedListTest.class,
 		common.NumberUtilsTest.class, common.StringUtilsTest.class,
 		bitsandbytes.NumSetBitsTest.class,
 		arrays.SimplePhoneNumberAllotterTest.class,
