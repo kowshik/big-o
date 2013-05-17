@@ -2,6 +2,9 @@ package common;
 
 import java.util.Comparator;
 
+/**
+ * Common methods required for manipulating arrays.
+ */
 public class ArrayUtils {
 	// Converts an integer array into Integer array.
 	public static Integer[] autoBox(int[] array) {

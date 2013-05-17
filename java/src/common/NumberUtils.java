@@ -1,6 +1,15 @@
 package common;
 
 public class NumberUtils {
+
+	/**
+	 * Converts a string to an integer.
+	 * 
+	 * @throws NumberFormatException
+	 *             if the string is not a valid integer.
+	 * 
+	 * @return the integer value
+	 */
 	public static int atoi(String s) {
 		if (s == null) {
 			throw new NullPointerException("You passed a null string.");
@@ -46,6 +55,11 @@ public class NumberUtils {
 		return isNegative ? intNum * -1 : intNum;
 	}
 
+	/**
+	 * Converts an integer to a string.
+	 * 
+	 * @return the string representation of the integer passed.
+	 */
 	public static String itoa(int number) {
 		int length = length(number);
 		if (number < 0) {
@@ -68,6 +82,9 @@ public class NumberUtils {
 		return new String(digits);
 	}
 
+	/**
+	 * Returns the length of an integer, ignoring its sign.
+	 */
 	public static int length(int number) {
 		if (number == 0) {
 			return 1;
@@ -80,6 +97,9 @@ public class NumberUtils {
 		return length;
 	}
 
+	/**
+	 * Reverses the digits of an integer.
+	 */
 	public static int reverse(int x) {
 		int reversed = 0;
 
@@ -96,6 +116,9 @@ public class NumberUtils {
 		return reversed;
 	}
 
+	/**
+	 * Returns true if the string is a valid integer, and false otherwise.
+	 */
 	public static boolean isValidInteger(String str) {
 		if (str == null || str.length() == 0) {
 			return false;
