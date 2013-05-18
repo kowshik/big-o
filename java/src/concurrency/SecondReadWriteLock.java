@@ -9,27 +9,27 @@ import java.util.concurrent.Executors;
 
 /**
  * Solves the second reader writer problem:
- *
+ * 
  * 1. If the write lock has NOT been acquired, then any number of read locks are
  * allowed to be acquired.
- *
+ * 
  * 2. If the write lock has been acquired or if atleast one writer is waiting to
  * acquire the write lock, then read locks are NOT allowed to be acquired until
  * there are no waiting writers.
- *
+ * 
  * 3. If one or more read locks have been acquired, then a write lock is NOT
  * allowed to be acquired until all read locks have been released.
- *
+ * 
  * 4. Only threads that previously held a read or write lock are allowed to
  * release them.
- *
+ * 
  * 5. The implementation is not re-entrant.
- *
+ * 
  * Note: Writers canNOT starve in this implementation i.e. In a situation where
  * there are many more readers when compared to writers, a writer waiting for a
  * write lock will always get preference over a reader waiting for a read lock.
  */
-public class SecondReaderWriterLock {
+public class SecondReadWriteLock implements ReadWriteLock {
 	private final Semaphore readerCheckinMutex = new Semaphore(1);
 	private final Semaphore readerCheckoutMutex = new Semaphore(1);
 	private final Semaphore writerMutex = new Semaphore(1);
@@ -40,6 +40,7 @@ public class SecondReaderWriterLock {
 	private volatile long numWriters;
 	private volatile Long writerId = null;
 
+	@Override
 	public void readLock() {
 		long threadId = Thread.currentThread().getId();
 
@@ -55,6 +56,7 @@ public class SecondReaderWriterLock {
 		System.out.printf("Acquired read lock for thread: %d\n", threadId);
 	}
 
+	@Override
 	public void readUnlock() {
 		long threadId;
 		try {
@@ -77,6 +79,7 @@ public class SecondReaderWriterLock {
 		System.out.printf("Released read lock for thread: %d\n", threadId);
 	}
 
+	@Override
 	public void writeLock() {
 		writerCheckinMutex.acquire();
 		if (numWriters == 0) {
@@ -90,6 +93,7 @@ public class SecondReaderWriterLock {
 		System.out.printf("Acquired write lock for thread: %d\n", writerId);
 	}
 
+	@Override
 	public void writeUnlock() {
 		Long threadId = Thread.currentThread().getId();
 		if (writerId == null || !writerId.equals(threadId)) {
@@ -113,7 +117,7 @@ public class SecondReaderWriterLock {
 
 	// Simple tests.
 	public static void main(String[] args) throws InterruptedException {
-		final SecondReaderWriterLock rwLock = new SecondReaderWriterLock();
+		final SecondReadWriteLock rwLock = new SecondReadWriteLock();
 
 		Executor exec = Executors.newFixedThreadPool(10);
 		Runnable reader = new Runnable() {

@@ -1,8 +1,8 @@
 package concurrency;
 
 /**
- * A counting semaphore implementation. You can use this as a mutex by
- * initializing the count to one.
+ * Implements a counting semaphore implementation. This can be used as a mutex
+ * by initializing the count to one.
  */
 public class Semaphore {
 	private int count;
