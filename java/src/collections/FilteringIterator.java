@@ -3,8 +3,6 @@ package collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import common.Predicate;
-
 /**
  * Implement an iterator that filters elements from the underlying iterator
  * based on the given predicate.
@@ -18,6 +16,11 @@ import common.Predicate;
  * 		public T next() {...}
  * }
  */
+
+interface Predicate<T> {
+	boolean apply(T object);
+}
+
 public class FilteringIterator<T> implements Iterator<T> {
 
 	private final Iterator<T> iterator;

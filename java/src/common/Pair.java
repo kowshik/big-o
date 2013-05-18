@@ -1,5 +1,8 @@
 package common;
 
+/**
+ * An object of this class can be used to store a pair of objects.
+ */
 public class Pair<Foo, Bar> {
 	private Foo first;
 
