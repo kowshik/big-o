@@ -121,7 +121,7 @@ public class SimpleSchedulingExecutor implements SchedulingExecutor {
 		if (epochTime < currentTime) {
 			new IllegalArgumentException(
 					String.format(
-							"Can't execut a task with time: %d which starts before current system time: %d.\n",
+							"Can't execute a task with time: %d which starts before current system time: %d.\n",
 							epochTime, currentTime));
 		}
 

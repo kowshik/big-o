@@ -3,12 +3,10 @@ package strings;
 /**
  * Given a text and a pattern, print all starting indices in the text from where
  * the pattern matches the text.
- *
+ * 
  * Case 1: Pattern can have repeating characters.
- *
+ * 
  * Case 2: Pattern cannot have repeating characters.
- *
- * @author kprakasam
  */
 public class NaivePatternMatching {
 	public void printMatchStartIndices(String text, String pattern) {
