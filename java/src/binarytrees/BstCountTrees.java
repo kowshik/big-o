@@ -14,18 +14,35 @@ package binarytrees;
  * For example, countTrees(4) should return 14, since there
  * are 14 structurally unique binary search trees that store 1, 2, 3, and 4.
  */
-public class BstCountTrees {
-
-	public static <T> long countTrees(int numKeys) {
-		if (numKeys <= 0) {
-			return 0;
-		}
-
+public class BstCountTrees
+{
+	
+	private static <T> long countTreesInternal(int numKeys, long[] savedSums)
+	{
+		
 		long sum = 0L;
-		for (int root = 1; root <= numKeys; root++) {
-			sum += countTrees(root - 1) * countTrees(numKeys - root);
+		for (int root = 1; root <= numKeys; root++)
+		{
+			if (savedSums[root - 1] == 0)
+				savedSums[root - 1] = countTreesInternal(root - 1,savedSums);
+			if(savedSums[numKeys - root] == 0)
+				savedSums[numKeys - root] = countTreesInternal(numKeys - root,savedSums);
+			sum += savedSums[root - 1] * savedSums[numKeys - root];
 		}
 
 		return sum;
 	}
+
+	public static <T> long countTrees(int numKeys){
+		long[] savedSums = new long[numKeys + 1];
+		savedSums[0] = 1;
+		return countTreesInternal(numKeys, savedSums);
+	}
+	public static void main(String[] args)
+	{
+		long  numTrees = BstCountTrees.countTrees(10);
+		System.out.println(numTrees);
+		
+	}
+
 }
